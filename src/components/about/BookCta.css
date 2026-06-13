@@ -1,0 +1,33 @@
+.about-book__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 36px;
+}
+
+.about-book__copy h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 14px;
+}
+
+.about-book__copy p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 66ch;
+}
+
+@media (max-width: 768px) {
+  .about-book__card {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .about-book__card .btn {
+    width: 100%;
+  }
+}

@@ -51,6 +51,10 @@
   color: var(--text-primary);
 }
 
+.nav__link--active {
+  color: var(--accent);
+}
+
 .nav__cta {
   padding: 10px 20px;
   font-size: 0.85rem;
@@ -130,6 +134,10 @@
   .nav__link {
     font-size: 1.25rem;
     color: var(--text-primary);
+  }
+
+  .nav__link--active {
+    color: var(--accent);
   }
 
   .nav__cta--mobile {

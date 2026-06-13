@@ -1,23 +1,20 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
-import Hero from './components/Hero'
-import Projects from './components/Projects'
-import About from './components/About'
-import Book from './components/Book'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/Home'
+import About from './pages/About'
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToTop />
       <Nav />
-      <main>
-        <Hero />
-        <Projects />
-        <About />
-        <Book />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }

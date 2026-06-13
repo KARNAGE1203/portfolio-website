@@ -15,6 +15,7 @@ dist-ssr
 *.sw?
 
 npm-debug.log*
+vite.*.log
 
 # Local Netlify folder
 .netlify

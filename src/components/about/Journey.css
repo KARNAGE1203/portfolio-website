@@ -1,0 +1,137 @@
+.journey__heading {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  max-width: 20ch;
+  margin-bottom: 64px;
+}
+
+.journey__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.journey__timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--accent);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 1.4s ease-out;
+}
+
+.journey__timeline.is-visible::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.journey__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  align-items: center;
+}
+
+.journey__item--left .journey__card {
+  grid-column: 1;
+  text-align: right;
+}
+
+.journey__item--right .journey__card {
+  grid-column: 3;
+}
+
+.journey__dot {
+  grid-column: 2;
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  z-index: 1;
+}
+
+.journey__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  max-width: 460px;
+}
+
+.journey__item--left .journey__card {
+  margin-left: auto;
+}
+
+.journey__item--right .journey__card {
+  margin-right: auto;
+}
+
+.journey__period {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.journey__location {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.journey__text {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+/* Current / "what's next" node */
+.journey__item--current .journey__card {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+.journey__item--current .journey__dot {
+  background: var(--accent);
+  width: 20px;
+  height: 20px;
+}
+
+.journey__item--current .journey__location {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .journey__timeline::before {
+    left: 8px;
+  }
+
+  .journey__item {
+    grid-template-columns: 16px 1fr;
+    column-gap: 20px;
+  }
+
+  .journey__dot {
+    grid-column: 1;
+    justify-self: start;
+    margin-left: 1px;
+  }
+
+  .journey__item--left .journey__card,
+  .journey__item--right .journey__card {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    margin: 0;
+    max-width: none;
+  }
+}

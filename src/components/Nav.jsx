@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import './Nav.css'
 
-const LINKS = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Book', href: '#book' },
-  { label: 'Contact', href: '#contact' },
+const SECTION_LINKS = [
+  { label: 'Projects', hash: '#projects' },
+  { label: 'Book', hash: '#book' },
+  { label: 'Contact', hash: '#contact' },
 ]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+  const onHome = pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -24,14 +26,41 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled || menuOpen ? 'nav--scrolled' : ''}`}>
       <div className="container nav__inner">
-        <a href="#top" className="nav__logo">Danish Saini</a>
+        <Link to="/" className="nav__logo" onClick={handleLinkClick}>Danish Saini</Link>
 
         <nav className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
-          {LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="nav__link" onClick={handleLinkClick}>
-              {link.label}
-            </a>
-          ))}
+          {SECTION_LINKS.slice(0, 1).map((link) =>
+            onHome ? (
+              <a key={link.hash} href={link.hash} className="nav__link" onClick={handleLinkClick}>
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.hash} to={`/${link.hash}`} className="nav__link" onClick={handleLinkClick}>
+                {link.label}
+              </Link>
+            )
+          )}
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) => `nav__link ${isActive ? 'nav__link--active' : ''}`}
+            onClick={handleLinkClick}
+          >
+            About
+          </NavLink>
+
+          {SECTION_LINKS.slice(1).map((link) =>
+            onHome ? (
+              <a key={link.hash} href={link.hash} className="nav__link" onClick={handleLinkClick}>
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.hash} to={`/${link.hash}`} className="nav__link" onClick={handleLinkClick}>
+                {link.label}
+              </Link>
+            )
+          )}
+
           <a
             href="mailto:sainidanish1229@gmail.com"
             className="btn btn-primary nav__cta nav__cta--mobile"
