@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import './Nav.css'
 
 const SECTION_LINKS = [
-  { label: 'Book', hash: '#book' },
   { label: 'Contact', hash: '#contact' },
 ]
 
@@ -34,6 +33,14 @@ export default function Nav() {
             onClick={handleLinkClick}
           >
             Projects
+          </NavLink>
+
+          <NavLink
+            to="/books"
+            className={({ isActive }) => `nav__link ${isActive ? 'nav__link--active' : ''}`}
+            onClick={handleLinkClick}
+          >
+            Books
           </NavLink>
 
           <NavLink

@@ -127,6 +127,23 @@ section {
   color: var(--accent);
 }
 
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: not-allowed;
+  white-space: nowrap;
+}
+
 /* Fade-up animation used for hero sequence */
 @keyframes fadeUp {
   from {
