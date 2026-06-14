@@ -1,3 +1,4 @@
+import HeroBackground from './HeroBackground'
 import './Hero.css'
 
 export default function Hero() {
@@ -8,6 +9,7 @@ export default function Hero() {
 
   return (
     <section id="top" className="hero">
+      <HeroBackground />
       <div className="container hero__inner">
         <p className="hero__name fade-up" style={{ animationDelay: '0s' }}>
           Hi! I am Danish Saini

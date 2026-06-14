@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import ImageWithFallback from '../components/ImageWithFallback'
+import FramesBackground from '../components/FramesBackground'
 import { PROJECTS_LIST } from '../data/projectsList'
 import './ProjectsPage.css'
 
@@ -41,6 +42,7 @@ export default function ProjectsPage() {
   return (
     <main>
       <section className="projects-hero">
+        <FramesBackground />
         <div className="container">
           <span className="section-label fade-up" style={{ animationDelay: '0s' }}>Selected Work</span>
           <h1 className="projects-hero__heading fade-up" style={{ animationDelay: '0.15s' }}>Three projects.</h1>
