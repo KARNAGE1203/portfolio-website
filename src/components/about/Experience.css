@@ -9,11 +9,13 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 28px;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, border-color 0.2s ease;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .experience-card:hover {
   border-color: var(--accent);
+  box-shadow: 0 0 32px var(--accent-dim);
 }
 
 .experience-card__header {

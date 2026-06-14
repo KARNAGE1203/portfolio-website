@@ -29,6 +29,11 @@ export default function About() {
             <span key={skill} className="pill">{skill}</span>
           ))}
         </div>
+        <div className="about__tool-logos" aria-label="Tools I use">
+          <img src="/img/logos/figma.svg" alt="Figma" className="about__logo" loading="lazy" width="48" height="48" />
+          <img src="/img/logos/react.svg" alt="React" className="about__logo" loading="lazy" width="48" height="48" />
+          <img src="/img/logos/nodejs.svg" alt="Node.js" className="about__logo" loading="lazy" width="48" height="48" />
+        </div>
       </div>
     </section>
   )

@@ -5,7 +5,7 @@ export default function AboutHero() {
     <section className="about-hero">
       <div className="about-hero__photo">
         <img
-          src="/images/danish-portrait.jpg"
+          src="/img/danish-portrait.jpg"
           alt="Danish Saini"
           onError={(event) => {
             event.currentTarget.style.display = 'none'

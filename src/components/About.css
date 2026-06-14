@@ -17,3 +17,27 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+
+.about__tool-logos {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.about__logo {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 8px;
+  padding: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-sizing: content-box;
+  opacity: 0.98;
+}
+
+@media (max-width: 600px) {
+  .about__tool-logos { gap: 10px; }
+  .about__logo { width: 36px; height: 36px; padding: 4px; }
+}
