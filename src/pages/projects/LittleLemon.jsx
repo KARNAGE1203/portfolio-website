@@ -15,9 +15,9 @@ export default function LittleLemon() {
       secondaryLink={{ label: 'View on GitHub', href: 'https://github.com/KARNAGE1203/little-lemon-restaurant' }}
       problem="The Meta Frontend Development course needed a capstone that demonstrated component architecture, state management, routing, and responsive design working together in a real application."
       process={[
-        { number: '01', title: 'Design', description: 'UI designed with UX principles first. Information hierarchy, navigation flow, and component logic planned before writing code.' },
-        { number: '02', title: 'Build', description: 'React 18 with component-based architecture, Context API for cart state, React Router for navigation.' },
-        { number: '03', title: 'Deploy', description: 'Deployed live on Netlify with automatic GitHub deploys on every push.' },
+        { number: '01', title: 'Design', icon: 'edit', description: 'UI designed with UX principles first. Information hierarchy, navigation flow, and component logic planned before writing code.' },
+        { number: '02', title: 'Build', icon: 'code', description: 'React 18 with component-based architecture, Context API for cart state, React Router for navigation.' },
+        { number: '03', title: 'Deploy', icon: 'send', description: 'Deployed live on Netlify with automatic GitHub deploys on every push.' },
       ]}
       screenshots={[
         { src: '/img/LittleLemon Screenshots/Home Page.png', alt: 'Little Lemon home page' },
@@ -32,14 +32,17 @@ export default function LittleLemon() {
       decisions={[
         {
           title: 'Context over prop drilling',
+          icon: 'layers',
           description: 'Used Context API instead of prop drilling for cart state so any component in the tree can access and update cart without passing props through intermediaries.',
         },
         {
           title: 'Reusable components',
+          icon: 'grid',
           description: 'Built reusable components for menu items, cards, and form elements so adding new content requires zero layout changes.',
         },
         {
           title: 'Mobile-first',
+          icon: 'smartphone',
           description: 'Designed mobile-first and scaled up, not the other way around — most restaurant browsing happens on phones.',
         },
       ]}

@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useInView from '../../hooks/useInView'
 import ImageWithFallback from '../../components/ImageWithFallback'
+import Icon from '../../components/Icon'
 import './ProjectPage.css'
+
+const ACCENT_CYCLE = ['var(--accent)', 'var(--accent-2)', 'var(--accent-3)']
+const ACCENT_DIM_CYCLE = ['var(--accent-dim)', 'var(--accent-2-dim)', 'var(--accent-3-dim)']
+const STAT_ICONS = { Role: 'user', Timeline: 'clock', Type: 'tag' }
 
 function OverviewSection({ problem, role, timeline, type }) {
   const [ref, inView] = useInView({ threshold: 0.2 })
@@ -20,10 +25,19 @@ function OverviewSection({ problem, role, timeline, type }) {
             <div
               key={label}
               className={`overview__stat reveal ${inView ? 'is-visible' : ''}`}
-              style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
+              style={{
+                transitionDelay: `${(i + 1) * 0.1}s`,
+                '--card-accent': ACCENT_CYCLE[i % 3],
+                '--card-accent-dim': ACCENT_DIM_CYCLE[i % 3],
+              }}
             >
-              <span className="overview__stat-label">{label}</span>
-              <span className="overview__stat-value">{value}</span>
+              <span className="icon-badge icon-badge--sm">
+                <Icon name={STAT_ICONS[label]} />
+              </span>
+              <div className="overview__stat-text">
+                <span className="overview__stat-label">{label}</span>
+                <span className="overview__stat-value">{value}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -44,8 +58,15 @@ function ProcessSection({ steps }) {
             <div
               key={step.title}
               className={`process__card reveal ${inView ? 'is-visible' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              style={{
+                transitionDelay: `${i * 0.1}s`,
+                '--card-accent': ACCENT_CYCLE[i % 3],
+                '--card-accent-dim': ACCENT_DIM_CYCLE[i % 3],
+              }}
             >
+              <span className="icon-badge">
+                <Icon name={step.icon} />
+              </span>
               <span className="process__number">{step.number}</span>
               <h3 className="process__title">{step.title}</h3>
               <p className="process__desc">{step.description}</p>
@@ -123,8 +144,16 @@ function TechStackSection({ techStack }) {
       <div className="container">
         <span className="section-label">Tech Stack</span>
         <div ref={ref} className={`tech-stack__grid ${hasBackend ? '' : 'tech-stack__grid--single'}`}>
-          <div className={`tech-stack__col reveal ${inView ? 'is-visible' : ''}`}>
-            <h3 className="tech-stack__heading">Frontend</h3>
+          <div
+            className={`tech-stack__col reveal ${inView ? 'is-visible' : ''}`}
+            style={{ '--card-accent': ACCENT_CYCLE[0], '--card-accent-dim': ACCENT_DIM_CYCLE[0] }}
+          >
+            <h3 className="tech-stack__heading">
+              <span className="icon-badge icon-badge--sm">
+                <Icon name="monitor" />
+              </span>
+              Frontend
+            </h3>
             <ul className="tech-list">
               {techStack.frontend.map((item) => (
                 <li key={item}><span className="tech-dot" />{item}</li>
@@ -133,8 +162,16 @@ function TechStackSection({ techStack }) {
           </div>
 
           {hasBackend && (
-            <div className={`tech-stack__col reveal ${inView ? 'is-visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
-              <h3 className="tech-stack__heading">Backend</h3>
+            <div
+              className={`tech-stack__col reveal ${inView ? 'is-visible' : ''}`}
+              style={{ transitionDelay: '0.1s', '--card-accent': ACCENT_CYCLE[1], '--card-accent-dim': ACCENT_DIM_CYCLE[1] }}
+            >
+              <h3 className="tech-stack__heading">
+                <span className="icon-badge icon-badge--sm">
+                  <Icon name="server" />
+                </span>
+                Backend
+              </h3>
               <ul className="tech-list">
                 {techStack.backend.map((item) => (
                   <li key={item}><span className="tech-dot" />{item}</li>
@@ -160,8 +197,15 @@ function DecisionsSection({ decisions }) {
             <div
               key={decision.title}
               className={`decisions__card reveal ${inView ? 'is-visible' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              style={{
+                transitionDelay: `${i * 0.1}s`,
+                '--card-accent': ACCENT_CYCLE[i % 3],
+                '--card-accent-dim': ACCENT_DIM_CYCLE[i % 3],
+              }}
             >
+              <span className="icon-badge">
+                <Icon name={decision.icon} />
+              </span>
               <span className="decisions__number">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="decisions__title">{decision.title}</h3>
               <p className="decisions__desc">{decision.description}</p>

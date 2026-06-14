@@ -99,6 +99,37 @@
   display: block;
 }
 
+/* Icon badges */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--card-accent-dim, var(--accent-dim));
+  color: var(--card-accent, var(--accent));
+  margin-bottom: 16px;
+}
+
+.icon-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-badge--sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-bottom: 0;
+}
+
+.icon-badge--sm svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* Overview */
 .overview__grid {
   display: grid;
@@ -121,13 +152,19 @@
 
 .overview__stat {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 16px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
+  border-top: 3px solid var(--card-accent, var(--accent));
   border-radius: 12px;
   padding: 20px 24px;
+}
+
+.overview__stat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .overview__stat-label {
@@ -136,7 +173,7 @@
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--card-accent, var(--accent));
 }
 
 .overview__stat-value {
@@ -157,7 +194,7 @@
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
+  border-top: 3px solid var(--card-accent, var(--accent));
   border-radius: 12px;
   padding: 24px;
   cursor: default;
@@ -166,7 +203,7 @@
 .process__number {
   font-family: var(--font-display);
   font-weight: 600;
-  color: var(--accent);
+  color: var(--card-accent, var(--accent));
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   margin-bottom: 12px;
@@ -298,6 +335,9 @@
 }
 
 .tech-stack__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 1.1rem;
   margin-bottom: 16px;
 }
@@ -321,7 +361,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--card-accent, var(--accent));
   flex-shrink: 0;
 }
 
@@ -338,7 +378,7 @@
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
+  border-top: 3px solid var(--card-accent, var(--accent));
   border-radius: 12px;
   padding: 24px;
   cursor: default;
@@ -347,7 +387,7 @@
 .decisions__number {
   font-family: var(--font-display);
   font-weight: 600;
-  color: var(--accent);
+  color: var(--card-accent, var(--accent));
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   margin-bottom: 12px;

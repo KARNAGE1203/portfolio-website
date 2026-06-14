@@ -15,9 +15,9 @@ export default function FindMyTutor() {
       secondaryLink={null}
       problem="Finding a tutor is fragmented — parents search across platforms, text friends for recommendations, and still end up with someone unvetted. Students have no reliable way to discover, evaluate, and book a tutor in one place."
       process={[
-        { number: '01', title: 'Research', description: 'User personas, pain point mapping, competitive analysis of existing tutoring platforms.' },
-        { number: '02', title: 'Wireframes', description: 'Lo-fi wireframes across 6 screens establishing navigation logic and content hierarchy.' },
-        { number: '03', title: 'Hi-Fi', description: 'Design system defined first, then hi-fi screens built on top. Clickable prototype published on Behance.' },
+        { number: '01', title: 'Research', icon: 'search', description: 'User personas, pain point mapping, competitive analysis of existing tutoring platforms.' },
+        { number: '02', title: 'Wireframes', icon: 'edit', description: 'Lo-fi wireframes across 6 screens establishing navigation logic and content hierarchy.' },
+        { number: '03', title: 'Hi-Fi', icon: 'eye', description: 'Design system defined first, then hi-fi screens built on top. Clickable prototype published on Behance.' },
       ]}
       screenshots={[
         { src: '/img/FindMyTutor Screenshots/Final Wireframes.png', alt: 'FindMyTutor final wireframes' },
@@ -28,14 +28,17 @@ export default function FindMyTutor() {
       decisions={[
         {
           title: 'Group time slots by period',
+          icon: 'clock',
           description: 'Grouped time slots by Morning, Afternoon, Evening instead of showing a flat list of 16 time slots. Reduces cognitive load at the moment of commitment.',
         },
         {
           title: 'Trust before action',
+          icon: 'shield',
           description: 'Structured the Tutor Profile to build trust before asking for action — credentials, reviews, and bio before the booking CTA.',
         },
         {
           title: 'Drive the next action',
+          icon: 'arrow-right-circle',
           description: 'Designed the Booking Confirmation screen to drive next action rather than dead-end the user. Add to Calendar is the primary CTA, not Back to Home.',
         },
       ]}
