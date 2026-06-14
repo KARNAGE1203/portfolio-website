@@ -1,11 +1,12 @@
 import './AboutHero.css'
+import { toWebp } from '../../utils/image'
 
 export default function AboutHero() {
   return (
     <section className="about-hero">
       <div className="about-hero__photo">
         <img
-          src="/img/danish-portrait.jpg"
+          src={toWebp('/img/danish-portrait.jpg')}
           alt="Danish Saini"
           onError={(event) => {
             event.currentTarget.style.display = 'none'

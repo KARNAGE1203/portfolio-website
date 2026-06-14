@@ -2,6 +2,7 @@ import './Projects.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PROJECTS } from '../data/projects'
+import { toWebp } from '../utils/image'
 
 function ProjectThumb({ name, slug }) {
   const [hasImage, setHasImage] = useState(true)
@@ -10,7 +11,7 @@ function ProjectThumb({ name, slug }) {
     <div className="project-card__thumb">
       {hasImage ? (
         <img
-          src={`/img/projects/${slug}.png`}
+          src={toWebp(`/img/projects/${slug}.png`)}
           alt={name}
           loading="lazy"
           decoding="async"
