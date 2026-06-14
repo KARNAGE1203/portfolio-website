@@ -1,6 +1,6 @@
 # Danish Saini — Portfolio
 
-Personal portfolio site for **Danish Saini**, UX/UI Designer & Frontend Developer based in Dubai. Built with React and Vite, deployed on Netlify.
+My personal Portfolio Website, as a UX/UI Designer & Frontend Developer based in Dubai. Built with React and Vite, deployed on Netlify.
 
 **Live site:** [danishsaini.com](https://danishsaini.com)
 
