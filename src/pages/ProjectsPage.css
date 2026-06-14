@@ -1,0 +1,156 @@
+.projects-hero {
+  padding-bottom: 48px;
+}
+
+.projects-hero__heading {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 16px 0;
+}
+
+.projects-hero__subtext {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+}
+
+.projects-list .project-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.project-row__image {
+  order: 1;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.project-row--image-right .project-row__image {
+  order: 2;
+  transform: translateX(60px);
+}
+
+.project-row.is-visible .project-row__image {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-row__image img,
+.project-row__image .img-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-row__content {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.project-row--image-right .project-row__content {
+  order: 1;
+}
+
+.project-row.is-visible .project-row__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-row__number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.project-row__name {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 12px;
+}
+
+.project-row__desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  max-width: 46ch;
+}
+
+.project-row__role {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.project-row .project-card__pills {
+  margin-bottom: 28px;
+}
+
+.projects-closing {
+  text-align: center;
+}
+
+.projects-closing a {
+  color: var(--accent);
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.projects-closing a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .project-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .project-row__image,
+  .project-row--image-right .project-row__image {
+    order: 1;
+    aspect-ratio: 16 / 10;
+    transform: translateY(40px);
+  }
+
+  .project-row--image-right .project-row__image {
+    transform: translateY(40px);
+  }
+
+  .project-row.is-visible .project-row__image {
+    transform: translateY(0);
+  }
+
+  .project-row__content,
+  .project-row--image-right .project-row__content {
+    order: 2;
+    padding: 40px 24px;
+  }
+}

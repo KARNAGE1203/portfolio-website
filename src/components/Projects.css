@@ -10,15 +10,10 @@
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
   border-radius: 12px;
   padding: 20px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
-}
-
-.project-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 32px var(--accent-dim);
 }
 
 .project-card__thumb {
@@ -41,11 +36,6 @@
   object-fit: cover;
   border-radius: 6px;
   display: block;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover .project-card__thumb img {
-  transform: scale(1.04);
 }
 
 .project-card__thumb span {
@@ -69,38 +59,11 @@
 }
 
 .project-card__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
   margin-bottom: 18px;
 }
 
-.pill {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--accent);
-  background: var(--accent-dim);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 5px 12px;
-}
-
-.project-card__links {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.project-card__link {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.project-card__link:hover {
-  color: var(--accent);
+.project-card__cta {
+  width: 100%;
 }
 
 @media (max-width: 1024px) {

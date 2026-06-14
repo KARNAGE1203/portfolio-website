@@ -58,16 +58,11 @@
 .journey__card {
   background: var(--card);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
   border-radius: 8px;
   padding: 28px;
   max-width: 460px;
   cursor: default;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.journey__card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 32px var(--accent-dim);
 }
 
 .journey__item--left .journey__card {

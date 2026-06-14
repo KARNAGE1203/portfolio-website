@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import './Nav.css'
 
 const SECTION_LINKS = [
-  { label: 'Projects', hash: '#projects' },
   { label: 'Book', hash: '#book' },
   { label: 'Contact', hash: '#contact' },
 ]
@@ -29,17 +28,13 @@ export default function Nav() {
         <Link to="/" className="nav__logo" onClick={handleLinkClick}>Danish Saini</Link>
 
         <nav className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
-          {SECTION_LINKS.slice(0, 1).map((link) =>
-            onHome ? (
-              <a key={link.hash} href={link.hash} className="nav__link" onClick={handleLinkClick}>
-                {link.label}
-              </a>
-            ) : (
-              <Link key={link.hash} to={`/${link.hash}`} className="nav__link" onClick={handleLinkClick}>
-                {link.label}
-              </Link>
-            )
-          )}
+          <NavLink
+            to="/projects"
+            className={({ isActive }) => `nav__link ${isActive ? 'nav__link--active' : ''}`}
+            onClick={handleLinkClick}
+          >
+            Projects
+          </NavLink>
 
           <NavLink
             to="/about"
@@ -49,7 +44,7 @@ export default function Nav() {
             About
           </NavLink>
 
-          {SECTION_LINKS.slice(1).map((link) =>
+          {SECTION_LINKS.map((link) =>
             onHome ? (
               <a key={link.hash} href={link.hash} className="nav__link" onClick={handleLinkClick}>
                 {link.label}

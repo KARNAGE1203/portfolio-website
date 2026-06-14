@@ -10,7 +10,7 @@ export default function Hero() {
     <section id="top" className="hero">
       <div className="container hero__inner">
         <p className="hero__name fade-up" style={{ animationDelay: '0s' }}>
-          Danish Saini
+          Hi! I am Danish Saini
         </p>
         <h1 className="hero__headline fade-up" style={{ animationDelay: '0.3s' }}>
           I design it. I build it.
