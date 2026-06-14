@@ -24,6 +24,6 @@ export const PROJECTS_LIST = [
     description: 'Multi-page React web app — menu, reservations, cart, order tracking.',
     role: 'Frontend Developer',
     stack: ['React', 'JavaScript', 'CSS', 'React Router'],
-    image: '/img/LittleLemon Screenshots/Home Page.png',
+    image: '/img/LittleLemon Screenshots/Cart.png',
   },
 ]

@@ -85,6 +85,7 @@ function GallerySection({ screenshots }) {
               aria-label={`Expand screenshot: ${shot.alt}`}
             >
               <ImageWithFallback src={shot.src} alt={shot.alt} label={shot.alt} />
+              <span className="gallery__item-overlay">View to expand</span>
             </button>
           ))}
         </div>
