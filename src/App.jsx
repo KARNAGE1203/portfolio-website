@@ -8,6 +8,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import LearningZone from './pages/projects/LearningZone'
 import FindMyTutor from './pages/projects/FindMyTutor'
 import LittleLemon from './pages/projects/LittleLemon'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/projects/learningzone" element={<LearningZone />} />
         <Route path="/projects/findmytutor" element={<FindMyTutor />} />
         <Route path="/projects/littlelemon" element={<LittleLemon />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

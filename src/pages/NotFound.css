@@ -1,0 +1,46 @@
+.not-found {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 72px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.not-found__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found__code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(4.5rem, 14vw, 9rem);
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.not-found__heading {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 16px;
+}
+
+.not-found__text {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 40ch;
+  margin-bottom: 36px;
+}
+
+.not-found__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
