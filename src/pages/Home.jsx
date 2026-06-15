@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 import Hero from '../components/Hero'
 import Projects from '../components/Projects'
 import About from '../components/About'
@@ -7,6 +8,8 @@ import Book from '../components/Book'
 import Contact from '../components/Contact'
 
 export default function Home() {
+  useDocumentTitle('Danish Saini — UX/UI Designer & Frontend Developer')
+
   const { hash } = useLocation()
 
   useEffect(() => {

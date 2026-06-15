@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 import ImageWithFallback from '../components/ImageWithFallback'
 import FramesBackground from '../components/FramesBackground'
 import { PROJECTS_LIST } from '../data/projectsList'
@@ -39,6 +40,8 @@ function ProjectRow({ project, index }) {
 }
 
 export default function ProjectsPage() {
+  useDocumentTitle('Projects — Danish Saini')
+
   return (
     <main>
       <section className="projects-hero">

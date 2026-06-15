@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useInView from '../../hooks/useInView'
+import useDocumentTitle from '../../hooks/useDocumentTitle'
 import ImageWithFallback from '../../components/ImageWithFallback'
 import Icon from '../../components/Icon'
 import './ProjectPage.css'
@@ -275,6 +276,8 @@ export default function ProjectPage({
   reflection,
   nextProject,
 }) {
+  useDocumentTitle(`${name} — Danish Saini`)
+
   return (
     <main className="project-page">
       <div className="container project-page__back-wrap">

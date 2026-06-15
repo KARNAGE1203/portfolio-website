@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 import HeroBackground from '../components/HeroBackground'
 import './NotFound.css'
 
 export default function NotFound() {
+  useDocumentTitle('404 — Page Not Found')
+
   return (
     <main className="not-found">
       <HeroBackground />
