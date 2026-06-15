@@ -1,10 +1,24 @@
+import { Link, NavLink } from 'react-router-dom'
 import './Footer.css'
 
 export default function Footer() {
+  const linkClass = ({ isActive }) => `footer__link ${isActive ? 'footer__link--active' : ''}`
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
-        <p className="footer__copy">© 2026 Danish Saini</p>
+        <div className="footer__brand">
+          <Link to="/" className="footer__logo">Danish Saini</Link>
+          <p className="footer__copy">© 2026 Danish Saini</p>
+        </div>
+
+        <nav className="footer__nav" aria-label="Footer navigation">
+          <NavLink to="/" end className={linkClass}>Home</NavLink>
+          <NavLink to="/projects" className={linkClass}>Projects</NavLink>
+          <NavLink to="/books" className={linkClass}>Books</NavLink>
+          <NavLink to="/about" className={linkClass}>About</NavLink>
+          <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+        </nav>
 
         <div className="footer__icons">
           <a
