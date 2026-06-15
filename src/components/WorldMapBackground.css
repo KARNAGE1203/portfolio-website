@@ -1,0 +1,54 @@
+.world-map {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--bg);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.world-map__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.world-map__countries path {
+  fill: none;
+  stroke: rgba(108, 99, 255, 0.15);
+  stroke-width: 0.75;
+}
+
+.world-map__route {
+  fill: none;
+  stroke: rgba(108, 99, 255, 0.18);
+  stroke-width: 0.75;
+}
+
+.world-map__route-glow {
+  fill: none;
+  stroke: #6C63FF;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.75;
+  animation-name: world-map-sweep;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes world-map-sweep {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: var(--sweep-offset, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-map__route-glow {
+    animation: none;
+    opacity: 0.35;
+  }
+}

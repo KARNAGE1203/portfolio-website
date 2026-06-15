@@ -118,6 +118,25 @@ const ICON_PATHS = {
       <line x1="11" y1="18" x2="13" y2="18" />
     </>
   ),
+  briefcase: (
+    <>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    </>
+  ),
+  zap: (
+    <>
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </>
+  ),
+  smile: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+      <line x1="9" y1="9" x2="9" y2="9.01" />
+      <line x1="15" y1="9" x2="15" y2="9.01" />
+    </>
+  ),
 }
 
 export default function Icon({ name, className = '' }) {

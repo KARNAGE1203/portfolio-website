@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './Nav.css'
-
-const SECTION_LINKS = [
-  { label: 'Contact', hash: '#contact' },
-]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const { pathname } = useLocation()
-  const onHome = pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -51,17 +45,13 @@ export default function Nav() {
             About
           </NavLink>
 
-          {SECTION_LINKS.map((link) =>
-            onHome ? (
-              <a key={link.hash} href={link.hash} className="nav__link" onClick={handleLinkClick}>
-                {link.label}
-              </a>
-            ) : (
-              <Link key={link.hash} to={`/${link.hash}`} className="nav__link" onClick={handleLinkClick}>
-                {link.label}
-              </Link>
-            )
-          )}
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => `nav__link ${isActive ? 'nav__link--active' : ''}`}
+            onClick={handleLinkClick}
+          >
+            Contact
+          </NavLink>
 
           <a
             href="mailto:sainidanish1229@gmail.com"
