@@ -3,8 +3,8 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 32px;
   align-items: center;
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--accent-dim);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
   border-radius: 8px;
   padding: 36px;
 }

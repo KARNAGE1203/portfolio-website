@@ -405,18 +405,18 @@
 .reflection__card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 32px 40px;
-  margin-top: 40px;
+  gap: 20px;
+  max-width: 68ch;
+  padding: 48px 0 16px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
 }
 
 .reflection__card p {
   color: var(--text-secondary);
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  text-wrap: pretty;
 }
 
 /* Next project */
