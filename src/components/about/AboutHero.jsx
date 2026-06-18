@@ -27,7 +27,7 @@ export default function AboutHero() {
           just getting started.
         </p>
         <div className="about-hero__actions">
-          <a href="/#projects" className="btn btn-primary">View My Work</a>
+          <a href="/projects" className="btn btn-primary">View My Work</a>
           <a href="/resume.pdf" className="btn btn-outline" download>Download Resume</a>
         </div>
       </div>

@@ -4,17 +4,17 @@ import './Journey.css'
 const NODES = [
   {
     location: 'Delhi, India',
-    period: '2003-2022',
+    period: '2003–2022',
     text: 'Where it started. School topper, competitive student, and the kid who convinced his father to send him to Canada with three suitcases and a plan.',
   },
   {
     location: 'Surrey, Canada',
-    period: '2022-2024',
+    period: '2022–2025',
     text: 'Three years of survival jobs, a Computer Information Systems diploma from KPU, a broken immigration dream, and the most formative chapter of my life. I came back different.',
   },
   {
     location: 'Dubai, UAE',
-    period: '2024-Present',
+    period: '2024–Present',
     text: "A fresh start in a city that rewards ambition. BSc Computer Science at DMU Dubai, three deployed projects, a published memoir, and a career that's just beginning.",
   },
   {

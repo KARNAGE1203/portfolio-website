@@ -179,7 +179,7 @@ function SecondBookTeaser() {
           about who I was when the newness wore off."
         </p>
         <p className="second-book__note">The Foreign Land: Second Year — Coming Soon</p>
-        <span className="btn btn-ghost" aria-disabled="true">Coming Soon</span>
+        <button disabled className="btn btn-ghost">Coming Soon</button>
       </div>
     </section>
   )

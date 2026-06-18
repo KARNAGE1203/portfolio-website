@@ -16,7 +16,7 @@ export default function BookCta() {
             </p>
           </div>
           <a
-            href="https://danishsaini.gumroad.com"
+            href="https://danishsaini12.gumroad.com/l/tazts"
             className="btn btn-primary"
             target="_blank"
             rel="noreferrer"

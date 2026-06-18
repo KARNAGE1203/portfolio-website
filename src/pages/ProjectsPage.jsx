@@ -63,7 +63,7 @@ export default function ProjectsPage() {
         <div className="container">
           <p>
             More work on{' '}
-            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">Behance</a>
+            <a href="https://www.behance.net/danishsaini" target="_blank" rel="noopener noreferrer">Behance</a>
             {' '}and{' '}
             <a href="https://github.com/KARNAGE1203" target="_blank" rel="noopener noreferrer">GitHub</a>
           </p>

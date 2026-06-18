@@ -5,13 +5,13 @@ const EDUCATION = [
   {
     degree: 'BSc Computer Science (Hons)',
     org: 'De Montfort University Dubai',
-    period: 'Sep 2025-Present',
+    period: 'Sep 2025–Present',
     details: ['GPA: 3.8', 'Deputy Class Representative'],
   },
   {
     degree: 'Diploma in Computer Information Systems',
     org: 'Kwantlen Polytechnic University',
-    period: 'May 2022-Aug 2024',
+    period: 'May 2022–Aug 2024',
     details: ['KPU IT Club', 'Two-time Peer Mentorship Award winner'],
   },
 ]

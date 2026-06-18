@@ -86,7 +86,7 @@ export default function Books() {
                 <span className="tag">Identity</span>
               </div>
               <div className="book-card__actions">
-                <span className="btn btn-ghost" aria-disabled="true">Coming Soon</span>
+                <button disabled className="btn btn-ghost">Coming Soon</button>
               </div>
             </div>
           </BookCard>

@@ -15,6 +15,7 @@
   background-position: center;
   filter: blur(10px);
   transform: scale(1.08);
+  will-change: transform;
 }
 
 .book-hero__overlay {

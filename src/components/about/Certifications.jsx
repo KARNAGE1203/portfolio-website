@@ -4,14 +4,14 @@ import './Cards.css'
 const CERTIFICATIONS = [
   {
     degree: 'Meta Frontend Development Professional Certificate',
-    org: '2025',
-    period: 'React, JavaScript, HTML/CSS, Version Control',
+    org: 'Meta / Coursera',
+    period: '2025',
     details: [],
   },
   {
     degree: 'Google UX Design Certificate',
-    org: '2025',
-    period: 'Wireframing, Prototyping, User Research, Usability Testing',
+    org: 'Google / Coursera',
+    period: '2025',
     details: [],
   },
 ]
