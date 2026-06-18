@@ -41,6 +41,7 @@ export default function Education() {
   return (
     <section id="education" className="education">
       <div className="container">
+        <h2 className="section-title">Education</h2>
         <div className="info-grid">
           {EDUCATION.map((item, index) => (
             <InfoCard key={item.degree} item={item} index={index} />

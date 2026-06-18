@@ -1,4 +1,3 @@
-import useInView from '../../hooks/useInView'
 import './Skills.css'
 
 const COLUMNS = [
@@ -34,48 +33,52 @@ const COLUMNS = [
   },
 ]
 
-function SkillColumn({ column, groupIndex }) {
-  const [ref, inView] = useInView()
+const DesignIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M3 21l3-1 11-11 1-3L14 3 3 14v7z" fill="currentColor" />
+  </svg>
+)
 
-  return (
-    <div className="skills__column">
-      <h3 className="skills__heading">{column.heading}</h3>
-      <div ref={ref} className="skills__tags">
-        {column.tags.map((tag, i) => (
-          <span
-            key={tag}
-            className={`tag reveal ${inView ? 'is-visible' : ''}`}
-            style={{ transitionDelay: `${(groupIndex * column.tags.length + i) * 0.05}s` }}
-          >
-            <span className="tag__icon" aria-hidden>
-              {column.heading === 'Design' ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 21l3-1 11-11 1-3L14 3 3 14v7z" fill="currentColor" />
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 7L3 12l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M16 7l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
-            </span>
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
+const DevIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M8 7L3 12l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16 7l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
 
 export default function Skills() {
   return (
     <section id="skills" className="skills">
-      <div className="container">
-        <div className="skills__grid">
-          {COLUMNS.map((column, i) => (
-            <SkillColumn key={column.heading} column={column} groupIndex={i} />
-          ))}
-        </div>
+      <div className="skills__rows">
+        {COLUMNS.map((column, i) => {
+          const Icon = i === 0 ? DesignIcon : DevIcon
+          const doubled = [...column.tags, ...column.tags]
+          return (
+            <div
+              key={column.heading}
+              className={`skills__row${i % 2 ? ' skills__row--reverse' : ''}`}
+            >
+              <span className="skills__row-label" aria-hidden="true">
+                {column.heading}
+              </span>
+              <div
+                className="skills__marquee"
+                aria-label={`${column.heading}: ${column.tags.join(', ')}`}
+              >
+                <div className="skills__marquee-track">
+                  {doubled.map((tag, j) => (
+                    <span key={j} className="skills__tag">
+                      <span className="skills__tag-icon">
+                        <Icon />
+                      </span>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )

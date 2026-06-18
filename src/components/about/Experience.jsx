@@ -55,6 +55,7 @@ export default function Experience() {
   return (
     <section id="experience" className="experience">
       <div className="container">
+        <h2 className="section-title">Experience</h2>
         <div className="experience__list">
           {EXPERIENCE.map((item, index) => (
             <ExperienceCard key={item.role} item={item} index={index} />

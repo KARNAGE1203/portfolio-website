@@ -12,7 +12,7 @@
   --text-secondary: #9090B0;
   --text-muted: #8888A2;
 
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Manrope', sans-serif;
 
   --max-width: 1180px;
@@ -251,6 +251,14 @@ section {
   transform: translateX(-50%) translateY(0);
   outline: 2px solid var(--text-primary);
   outline-offset: 2px;
+}
+
+/* Section-level heading shared across About page sections */
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 40px;
 }
 
 /* Responsive helpers */
