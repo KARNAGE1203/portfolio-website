@@ -16,20 +16,23 @@ import NotFound from './pages/NotFound'
 export default function App() {
   return (
     <BrowserRouter>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <ScrollToTop />
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/learningzone" element={<LearningZone />} />
-        <Route path="/projects/findmytutor" element={<FindMyTutor />} />
-        <Route path="/projects/littlelemon" element={<LittleLemon />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/books/the-foreign-land" element={<TheForeignLand />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div id="main-content" tabIndex="-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/learningzone" element={<LearningZone />} />
+          <Route path="/projects/findmytutor" element={<FindMyTutor />} />
+          <Route path="/projects/littlelemon" element={<LittleLemon />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/books/the-foreign-land" element={<TheForeignLand />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
     </BrowserRouter>
   )
