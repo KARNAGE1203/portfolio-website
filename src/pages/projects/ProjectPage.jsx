@@ -52,7 +52,7 @@ function ProcessSection({ steps }) {
   return (
     <section className="process">
       <div className="container">
-        <span className="section-label">Process</span>
+        <h2 className="section-title">Process</h2>
         <div ref={ref} className="process__grid">
           {steps.map((step, i) => (
             <div
