@@ -1,3 +1,8 @@
+/* Tighter vertical rhythm for case study pages (global section is 96px) */
+.project-page section {
+  padding: 72px 0;
+}
+
 /* Back navigation */
 .project-page__back-wrap {
   padding: 112px 0 0;
@@ -223,7 +228,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 40px;
 }
 
 .gallery__item {
@@ -324,7 +328,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 48px;
-  margin-top: 40px;
 }
 
 .tech-stack__grid--single {
@@ -368,7 +371,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 40px;
 }
 
 .decisions__card {

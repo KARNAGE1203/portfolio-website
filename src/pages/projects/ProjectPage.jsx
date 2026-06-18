@@ -94,6 +94,7 @@ function GallerySection({ screenshots }) {
   return (
     <section className="gallery">
       <div className="container">
+        <h2 className="section-title">Screens</h2>
         <div ref={ref} className="gallery__grid">
           {screenshots.map((shot, i) => (
             <button
@@ -141,6 +142,7 @@ function TechStackSection({ techStack }) {
   return (
     <section className="tech-stack">
       <div className="container">
+        <h2 className="section-title">Built with</h2>
         <div ref={ref} className={`tech-stack__grid ${hasBackend ? '' : 'tech-stack__grid--single'}`}>
           <div
             className={`tech-stack__col reveal ${inView ? 'is-visible' : ''}`}
@@ -189,6 +191,7 @@ function DecisionsSection({ decisions }) {
   return (
     <section className="decisions">
       <div className="container">
+        <h2 className="section-title">Decisions</h2>
         <div ref={ref} className="decisions__grid">
           {decisions.map((decision, i) => (
             <div
