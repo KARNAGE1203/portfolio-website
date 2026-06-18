@@ -331,7 +331,24 @@
 
 .tech-stack__grid--single {
   grid-template-columns: 1fr;
-  max-width: 36ch;
+}
+
+.tech-stack__grid--single .tech-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-stack__grid--single .tech-list li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.92rem;
+}
+
+.tech-stack__grid--single .tech-dot {
+  display: none;
 }
 
 .tech-stack__heading {
@@ -408,9 +425,6 @@
   flex-direction: column;
   gap: 20px;
   max-width: 68ch;
-  padding: 48px 0 16px;
-  margin-top: 24px;
-  border-top: 1px solid var(--border);
 }
 
 .reflection__card p {
@@ -490,10 +504,6 @@
   .tech-stack__grid {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-
-  .reflection__card {
-    padding: 28px;
   }
 
   .next-project {
