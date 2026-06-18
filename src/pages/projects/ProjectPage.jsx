@@ -223,6 +223,7 @@ function ReflectionSection({ paragraphs }) {
   return (
     <section className="reflection">
       <div className="container">
+        <h2 className="section-title">Reflection</h2>
         <div ref={ref} className={`reflection__card reveal ${inView ? 'is-visible' : ''}`}>
           {paragraphs.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
