@@ -19,7 +19,6 @@ export default function AboutHero() {
       </div>
 
       <div className="about-hero__content">
-        <span className="section-label">About Me</span>
         <h1 className="about-hero__heading">Designer. Developer. Storyteller.</h1>
         <p className="about-hero__text">
           I'm Danish Saini - a 23-year-old UX/UI Designer and Frontend Developer currently

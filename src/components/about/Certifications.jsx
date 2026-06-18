@@ -36,7 +36,6 @@ export default function Certifications() {
   return (
     <section id="certifications" className="certifications">
       <div className="container">
-        <span className="section-label">Certifications</span>
         <div className="info-grid">
           {CERTIFICATIONS.map((item, index) => (
             <CertificationCard key={item.degree} item={item} index={index} />

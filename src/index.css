@@ -10,10 +10,10 @@
   --accent-3-dim: #FBBF2420;
   --text-primary: #FFFFFF;
   --text-secondary: #9090B0;
-  --text-muted: #55556A;
+  --text-muted: #80809A;
 
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Manrope', sans-serif;
 
   --max-width: 1180px;
 }
@@ -36,6 +36,9 @@ html, body {
 
 body {
   font-family: var(--font-body);
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -66,6 +69,10 @@ h1, h2, h3, h4 {
   line-height: 1.15;
 }
 
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -79,9 +86,9 @@ section {
 .section-label {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 16px;
@@ -223,5 +230,18 @@ section {
 @media (max-width: 768px) {
   section {
     padding: 64px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
   }
 }

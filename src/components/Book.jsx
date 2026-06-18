@@ -5,7 +5,6 @@ export default function Book() {
   return (
     <section id="book">
       <div className="container book__inner">
-        <span className="section-label">Written Work</span>
         <h2 className="book__heading">A memoir about starting over.</h2>
         <p className="book__text">
           Three years in Canada. Survival jobs, a diploma, a broken immigration dream, and a

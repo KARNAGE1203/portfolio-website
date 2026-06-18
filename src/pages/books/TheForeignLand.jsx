@@ -112,7 +112,6 @@ function ExcerptSection() {
     <section id="excerpt" className="excerpt">
       <div className="container">
         <div ref={ref} className={`excerpt__card reveal ${inView ? 'is-visible' : ''}`}>
-          <span className="section-label">An Excerpt</span>
           <div className="excerpt__text">
             {EXCERPT_PARAGRAPHS.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
@@ -140,7 +139,6 @@ function AuthorSection() {
         </div>
 
         <div className={`author-section__content reveal-right ${inView ? 'is-visible' : ''}`}>
-          <span className="section-label">About the Author</span>
           <h2 className="author-section__heading">Danish Saini</h2>
           <p>
             I am twenty-three years old. I am in Dubai, studying Computer Science at De Montfort
@@ -171,7 +169,6 @@ function SecondBookTeaser() {
   return (
     <section className="second-book">
       <div className="container second-book__inner" ref={ref}>
-        <span className="section-label">What Comes Next</span>
         <h2 className={`second-book__heading reveal ${inView ? 'is-visible' : ''}`}>
           The second year was harder.
         </h2>

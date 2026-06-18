@@ -17,7 +17,6 @@ function OverviewSection({ problem, role, timeline, type }) {
     <section className="overview">
       <div className="container overview__grid" ref={ref}>
         <div className={`overview__problem reveal ${inView ? 'is-visible' : ''}`}>
-          <span className="section-label">The Problem</span>
           <p>{problem}</p>
         </div>
 
@@ -95,7 +94,6 @@ function GallerySection({ screenshots }) {
   return (
     <section className="gallery">
       <div className="container">
-        <span className="section-label">Screenshots</span>
         <div ref={ref} className="gallery__grid">
           {screenshots.map((shot, i) => (
             <button
@@ -143,7 +141,6 @@ function TechStackSection({ techStack }) {
   return (
     <section className="tech-stack">
       <div className="container">
-        <span className="section-label">Tech Stack</span>
         <div ref={ref} className={`tech-stack__grid ${hasBackend ? '' : 'tech-stack__grid--single'}`}>
           <div
             className={`tech-stack__col reveal ${inView ? 'is-visible' : ''}`}
@@ -192,7 +189,6 @@ function DecisionsSection({ decisions }) {
   return (
     <section className="decisions">
       <div className="container">
-        <span className="section-label">Key Decisions</span>
         <div ref={ref} className="decisions__grid">
           {decisions.map((decision, i) => (
             <div
@@ -224,7 +220,6 @@ function ReflectionSection({ paragraphs }) {
   return (
     <section className="reflection">
       <div className="container">
-        <span className="section-label">Reflection</span>
         <div ref={ref} className={`reflection__card reveal ${inView ? 'is-visible' : ''}`}>
           {paragraphs.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>

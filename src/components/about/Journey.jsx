@@ -51,7 +51,6 @@ export default function Journey() {
   return (
     <section id="journey" className="journey">
       <div className="container">
-        <span className="section-label">The Journey</span>
         <h2 className="journey__heading">Three countries. One direction.</h2>
 
         <div ref={lineRef} className={`journey__timeline ${lineInView ? 'is-visible' : ''}`}>

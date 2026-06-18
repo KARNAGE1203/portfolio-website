@@ -58,7 +58,6 @@
 .journey__card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
   border-radius: 8px;
   padding: 28px;
   max-width: 460px;

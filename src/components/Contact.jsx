@@ -22,7 +22,6 @@ export default function Contact() {
   return (
     <section id="contact">
       <div className="container">
-        <span className="section-label">Get In Touch</span>
         <h2 className="contact__heading">Let's build something.</h2>
         <p className="contact__subtext">
           Open to part-time, internship, and freelance roles in Dubai and remotely.

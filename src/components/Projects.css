@@ -10,7 +10,6 @@
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
   border-radius: 12px;
   padding: 20px;
   cursor: default;

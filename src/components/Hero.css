@@ -17,12 +17,12 @@
 }
 
 .hero__name {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0;
+  text-transform: none;
   margin-bottom: 20px;
 }
 

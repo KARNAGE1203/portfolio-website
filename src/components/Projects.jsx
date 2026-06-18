@@ -28,8 +28,6 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="container">
-        <span className="section-label">Selected Work</span>
-
         <div className="projects__grid">
           {PROJECTS.map((project) => (
             <article key={project.name} className="project-card">

@@ -71,7 +71,6 @@ export default function Skills() {
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <span className="section-label">What I work with</span>
         <div className="skills__grid">
           {COLUMNS.map((column, i) => (
             <SkillColumn key={column.heading} column={column} groupIndex={i} />

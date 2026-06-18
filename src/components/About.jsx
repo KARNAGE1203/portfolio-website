@@ -15,7 +15,6 @@ export default function About() {
   return (
     <section id="about">
       <div className="container">
-        <span className="section-label">About</span>
         <h2 className="about__heading">Designer by instinct. Developer by choice.</h2>
         <p className="about__text">
           I'm a 23-year-old Computer Science student at De Montfort University Dubai. I've lived

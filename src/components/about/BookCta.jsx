@@ -9,7 +9,6 @@ export default function BookCta() {
       <div className="container">
         <div ref={ref} className={`about-book__card reveal ${inView ? 'is-visible' : ''}`}>
           <div className="about-book__copy">
-            <span className="section-label">Also</span>
             <h2>I wrote a book.</h2>
             <p>
               The Foreign Land is a memoir about three years in Canada - the survival jobs, the
