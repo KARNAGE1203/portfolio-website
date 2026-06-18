@@ -12,15 +12,20 @@ export default function Hero() {
       <HeroBackground />
       <div className="container hero__inner">
         <p className="hero__name fade-up" style={{ animationDelay: '0s' }}>
-          Hi! I am Danish Saini
+          Hi, I'm Danish Saini —
         </p>
-        <h1 className="hero__headline fade-up" style={{ animationDelay: '0.3s' }}>
-          I design it. I build it.
+        <h1 className="hero__headline">
+          <span className="hero__hl-bold fade-up" style={{ animationDelay: '0.2s' }}>
+            I design it.
+          </span>
+          <span className="hero__hl-ghost fade-up" style={{ animationDelay: '0.4s' }}>
+            I build it.
+          </span>
         </h1>
         <p className="hero__subheading fade-up" style={{ animationDelay: '0.6s' }}>
-          UX/UI Designer &amp; Frontend Developer based in Dubai.
+          UX/UI designer and developer in Dubai. I write things, too.
         </p>
-        <div className="hero__actions">
+        <div className="hero__actions fade-up" style={{ animationDelay: '0.8s' }}>
           <a href="#projects" className="btn btn-primary" onClick={scrollToProjects}>
             View My Work
           </a>
