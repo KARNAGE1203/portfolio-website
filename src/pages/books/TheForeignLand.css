@@ -27,6 +27,7 @@
   position: relative;
   z-index: 2;
   padding-top: 88px;
+  text-align: left;
 }
 
 .book-hero__back {
