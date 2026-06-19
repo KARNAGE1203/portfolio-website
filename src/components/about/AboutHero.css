@@ -1,13 +1,17 @@
 .about-hero {
+  position: relative;
   display: flex;
-  min-height: 100vh;
-  padding: 0;
+  min-height: 100dvh;
+  padding-top: 72px;
+  padding-bottom: 0;
+  overflow: hidden;
 }
 
 .about-hero__photo {
   position: relative;
-  flex: 0 0 48%;
-  min-height: 100vh;
+  z-index: 1;
+  flex: 0 0 44%;
+  min-height: auto;
   overflow: hidden;
   background: var(--card);
 }
@@ -52,6 +56,8 @@
 }
 
 .about-hero__content {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;

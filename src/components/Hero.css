@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   padding-top: 72px;
+  padding-bottom: 0;
   overflow: hidden;
 }
 
@@ -50,19 +51,14 @@
   margin: 0 0 28px;
 }
 
-.hero-tagline__bold {
+.hero-tagline__design {
   font-weight: 700;
-  color: var(--text-primary);
-}
-
-.hero-accent {
   color: var(--accent-2);
-  font-style: normal;
 }
 
-.hero-accent-alt {
+.hero-tagline__build {
+  font-weight: 700;
   color: var(--accent);
-  font-style: normal;
 }
 
 .hero-desc {

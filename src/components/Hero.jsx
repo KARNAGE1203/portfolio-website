@@ -31,8 +31,8 @@ export default function Hero() {
           <p className="hero-greeting">Hi, I'm</p>
           <h1 className="hero-name">Danish Saini</h1>
           <p className="hero-tagline">
-            <span className="hero-tagline__bold">I <em className="hero-accent">design</em> it.</span>{' '}
-            <span className="hero-tagline__bold">I <em className="hero-accent-alt">build</em> it.</span>
+            <span className="hero-tagline__design">I design it.</span>{' '}
+            <span className="hero-tagline__build">I build it.</span>
           </p>
           <p className="hero-desc">
             UX/UI designer and frontend developer. Based in Dubai. I write things, too.

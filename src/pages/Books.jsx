@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import ImageWithFallback from '../components/ImageWithFallback'
-import WritingBackground from '../components/WritingBackground'
+import PageHeroMarquee from '../components/PageHeroMarquee'
 import './Books.css'
 
 const GUMROAD_URL = 'https://danishsaini12.gumroad.com/l/tazts'
@@ -24,7 +24,7 @@ export default function Books() {
   return (
     <main>
       <section className="books-hero">
-        <WritingBackground />
+        <PageHeroMarquee word="Books" />
         <div className="container">
           <span className="section-label fade-up" style={{ animationDelay: '0s' }}>Written Work</span>
           <h1 className="books-hero__heading fade-up" style={{ animationDelay: '0.15s' }}>Stories worth telling.</h1>

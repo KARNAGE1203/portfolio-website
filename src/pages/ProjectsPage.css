@@ -1,7 +1,12 @@
 .projects-hero {
   position: relative;
   overflow: hidden;
-  padding-bottom: 48px;
+  min-height: clamp(280px, 27vw, 460px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 72px;
+  padding-bottom: 0;
 }
 
 .projects-hero .container {
@@ -22,12 +27,13 @@
 .projects-list {
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
 .project-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 70vh;
+  min-height: 52vh;
   background: var(--card);
   border-top: 1px solid var(--border);
 }
@@ -39,6 +45,7 @@
 .project-row__image {
   order: 1;
   overflow: hidden;
+  padding: 28px 36px;
   opacity: 0;
   transform: translateX(-60px);
   transition: opacity 0.75s cubic-bezier(0.25, 1, 0.5, 1), transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
@@ -60,6 +67,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 
 .project-row__content {
@@ -68,7 +76,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 64px;
+  padding: 48px 56px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
@@ -122,6 +130,7 @@
 
 .projects-closing {
   text-align: center;
+  padding: 64px 0;
 }
 
 .projects-closing a {

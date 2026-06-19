@@ -1,9 +1,11 @@
 import './AboutHero.css'
 import { toWebp } from '../../utils/image'
+import PageHeroMarquee from '../PageHeroMarquee'
 
 export default function AboutHero() {
   return (
     <section className="about-hero">
+      <PageHeroMarquee word="About" />
       <div className="about-hero__photo">
         <img
           src={toWebp('/img/danish-portrait.jpg')}

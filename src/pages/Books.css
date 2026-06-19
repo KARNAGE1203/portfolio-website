@@ -1,8 +1,12 @@
 .books-hero {
   position: relative;
   overflow: hidden;
-  padding-top: 96px;
-  padding-bottom: 32px;
+  min-height: clamp(280px, 27vw, 460px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 72px;
+  padding-bottom: 0;
 }
 
 .books-hero .container {
