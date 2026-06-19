@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { PROJECTS } from '../data/projects'
 import { toWebp } from '../utils/image'
 
-function ProjectThumb({ name, slug }) {
+function ProjectVisual({ name, slug }) {
   const [hasImage, setHasImage] = useState(true)
 
   return (
-    <div className="project-card__thumb">
+    <div className="project-visual">
       {hasImage ? (
         <img
           src={toWebp(`/img/projects/${slug}.png`)}
@@ -18,7 +18,7 @@ function ProjectThumb({ name, slug }) {
           onError={() => setHasImage(false)}
         />
       ) : (
-        <span>{name}</span>
+        <span className="project-visual__fallback">{name}</span>
       )}
     </div>
   )
@@ -26,28 +26,30 @@ function ProjectThumb({ name, slug }) {
 
 export default function Projects() {
   return (
-    <section id="projects">
-      <div className="container">
-        <div className="projects__grid">
-          {PROJECTS.map((project) => (
-            <article key={project.name} className="project-card">
-              <ProjectThumb name={project.name} slug={project.slug} />
-
-              <h3 className="project-card__title">{project.name}</h3>
-              <p className="project-card__desc">{project.description}</p>
-
-              <div className="project-card__pills">
-                {project.stack.map((tech) => (
-                  <span key={tech} className="pill">{tech}</span>
-                ))}
-              </div>
-
-              <Link to={project.path} className="btn btn-primary project-card__cta">
-                View Case Study
-              </Link>
-            </article>
-          ))}
-        </div>
+    <section id="projects" className="projects">
+      <div className="projects__stack">
+        {PROJECTS.map((project, index) => (
+          <div key={project.name} className="project-slot">
+            <div className="container">
+              <article className="project-card-sticky">
+                <div className="project-card-sticky__info">
+                  <span className="project-card-sticky__num">0{index + 1}</span>
+                  <h3 className="project-card-sticky__title">{project.name}</h3>
+                  <p className="project-card-sticky__desc">{project.description}</p>
+                  <div className="project-card-sticky__pills">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="pill">{tech}</span>
+                    ))}
+                  </div>
+                  <Link to={project.path} className="btn btn-primary">
+                    View Case Study
+                  </Link>
+                </div>
+                <ProjectVisual name={project.name} slug={project.slug} />
+              </article>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

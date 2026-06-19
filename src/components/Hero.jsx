@@ -1,38 +1,64 @@
+import { useRef, useEffect } from 'react'
 import HeroBackground from './HeroBackground'
+import lenis from '../lib/lenis'
 import './Hero.css'
 
 export default function Hero() {
+  const heroRef = useRef(null)
+
   const scrollToProjects = (e) => {
     e.preventDefault()
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+    const el = document.getElementById('projects')
+    if (el) lenis.scrollTo(el, { offset: -72 })
   }
 
+  useEffect(() => {
+    const handleScroll = ({ scroll }) => {
+      if (!heroRef.current) return
+      const progress = Math.min(scroll / (window.innerHeight * 0.75), 1)
+      heroRef.current.style.setProperty('--exit', progress)
+    }
+    lenis.on('scroll', handleScroll)
+    return () => lenis.off('scroll', handleScroll)
+  }, [])
+
   return (
-    <section id="top" className="hero">
+    <section id="top" className="hero" ref={heroRef}>
       <HeroBackground />
-      <div className="container hero__inner">
-        <p className="hero__name fade-up" style={{ animationDelay: '0s' }}>
-          Hi, I'm Danish Saini —
-        </p>
-        <h1 className="hero__headline">
-          <span className="hero__hl-bold fade-up" style={{ animationDelay: '0.2s' }}>
-            I design it.
-          </span>
-          <span className="hero__hl-ghost fade-up" style={{ animationDelay: '0.4s' }}>
-            I build it.
-          </span>
-        </h1>
-        <p className="hero__subheading fade-up" style={{ animationDelay: '0.6s' }}>
-          UX/UI designer and developer in Dubai. I write things, too.
-        </p>
-        <div className="hero__actions fade-up" style={{ animationDelay: '0.8s' }}>
-          <a href="#projects" className="btn btn-primary" onClick={scrollToProjects}>
-            View My Work
-          </a>
-          <a href="/resume.pdf" className="btn btn-outline" download>
-            Download Resume
-          </a>
+
+      <div className="container hero-content">
+        <div className="hero-text fade-up">
+          <p className="hero-greeting">Hi, I'm</p>
+          <h1 className="hero-name">Danish Saini</h1>
+          <p className="hero-tagline">
+            <span className="hero-tagline__bold">I <em className="hero-accent">design</em> it.</span>{' '}
+            <span className="hero-tagline__bold">I <em className="hero-accent-alt">build</em> it.</span>
+          </p>
+          <p className="hero-desc">
+            UX/UI designer and frontend developer. Based in Dubai. I write things, too.
+          </p>
+          <div className="hero-avail">
+            <span className="hero-avail__dot" aria-hidden="true" />
+            Available Sep 2026
+          </div>
+          <div className="hero-actions">
+            <a href="#projects" className="btn btn-primary" onClick={scrollToProjects}>
+              View My Work
+            </a>
+            <a href="/resume.pdf" className="btn btn-outline" download>
+              Resume
+            </a>
+          </div>
         </div>
+
+        <div className="hero-sym-col" aria-hidden="true">
+          <div className="hsym-main">{'</>'}</div>
+        </div>
+      </div>
+
+      <div className="hero-scroll-cue" aria-hidden="true">
+        <span className="hero-scroll-cue__line" />
+        <span className="hero-scroll-cue__label">scroll</span>
       </div>
     </section>
   )

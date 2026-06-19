@@ -14,6 +14,7 @@
 
   --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 
   --max-width: 1180px;
 
@@ -28,16 +29,14 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
   scroll-padding-top: 72px;
-}
-
-html, body {
-  background: var(--bg);
+  background: var(--bg); /* Background on html so z-index: -1 fixed layers show above it */
   color: var(--text-primary);
 }
 
 body {
+  background: transparent;
   font-family: var(--font-body);
   line-height: 1.7;
   font-optical-sizing: auto;
@@ -47,8 +46,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Ensure all page chrome sits above the fixed scroll-bg (z-index: -1) */
 #root {
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
 }
 
 a {

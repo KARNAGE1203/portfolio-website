@@ -276,9 +276,9 @@
 }
 
 .author-section__coords-value {
-  font-family: 'SF Mono', 'Courier New', monospace;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
   color: var(--accent);
 }
 

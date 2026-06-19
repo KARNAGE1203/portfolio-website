@@ -1,0 +1,54 @@
+.scroll-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.scroll-bg__layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.scroll-bg__layer.is-active {
+  opacity: 1;
+}
+
+/* Each section has a distinct gradient personality */
+.scroll-bg__layer--hero {
+  background:
+    radial-gradient(ellipse at 15% 12%, rgba(108, 99, 255, 0.18) 0%, transparent 52%),
+    radial-gradient(ellipse at 85% 80%, rgba(108, 99, 255, 0.06) 0%, transparent 45%);
+}
+
+.scroll-bg__layer--projects {
+  background:
+    radial-gradient(ellipse at 88% 22%, rgba(45, 212, 191, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 75%, rgba(45, 212, 191, 0.05) 0%, transparent 45%);
+}
+
+.scroll-bg__layer--about {
+  background:
+    radial-gradient(ellipse at 20% 65%, rgba(45, 212, 191, 0.09) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 20%, rgba(108, 99, 255, 0.06) 0%, transparent 45%);
+}
+
+.scroll-bg__layer--book {
+  background:
+    radial-gradient(ellipse at 60% 50%, rgba(251, 191, 36, 0.09) 0%, transparent 52%),
+    radial-gradient(ellipse at 10% 20%, rgba(251, 191, 36, 0.04) 0%, transparent 40%);
+}
+
+.scroll-bg__layer--contact {
+  background:
+    radial-gradient(ellipse at 50% 85%, rgba(108, 99, 255, 0.08) 0%, transparent 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-bg__layer {
+    transition: none;
+  }
+}
