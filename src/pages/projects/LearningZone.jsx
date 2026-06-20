@@ -48,17 +48,17 @@ export default function LearningZone() {
       wireframes={[
         {
           label: 'Dashboard',
-          lofi: '/img/LearningZone Redesign Screenshots/Screenshot 2026-06-20 130010.png',
+          lofi: '/img/LearningZone Redesign Screenshots/Dashboard_Lofi.png',
           hifi: '/img/LearningZone Redesign Screenshots/Dashboard Page.png',
         },
         {
           label: 'Home',
-          lofi: '/img/LearningZone Redesign Screenshots/Screenshot 2026-06-20 130024.png',
+          lofi: '/img/LearningZone Redesign Screenshots/Home_Lofi.png',
           hifi: '/img/LearningZone Redesign Screenshots/Home Page.png',
         },
         {
           label: 'Course Info',
-          lofi: '/img/LearningZone Redesign Screenshots/Screenshot 2026-06-20 130037.png',
+          lofi: '/img/LearningZone Redesign Screenshots/Course Info_Lofi.png',
           hifi: '/img/LearningZone Redesign Screenshots/Course Info Page.png',
         },
       ]}
