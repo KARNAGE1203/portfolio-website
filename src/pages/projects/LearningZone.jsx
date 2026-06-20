@@ -68,12 +68,7 @@ export default function LearningZone() {
         { before: 'Icon-only navigation with no text labels in key areas', after: 'Labelled sidebar with clear hierarchy and active state indicators' },
         { before: 'Course materials buried two levels inside each module', after: 'Quick-access panel on course home, primary materials surfaced directly' },
       ]}
-      screenshots={[
-        { src: '/img/LearningZone Redesign Screenshots/Dashboard Page.png', alt: 'LearningZone dashboard' },
-        { src: '/img/LearningZone Redesign Screenshots/Home Page.png', alt: 'LearningZone home page' },
-        { src: '/img/LearningZone Redesign Screenshots/Course Info Page.png', alt: 'LearningZone course page' },
-        { src: '/img/LearningZone Redesign Screenshots/Grades Page.png', alt: 'LearningZone grades page' },
-      ]}
+      screenshots={[]}
       techStack={{
         frontend: ['React', 'TypeScript', 'Vite', 'Netlify'],
         backend: ['Node.js', 'Express', 'JWT Authentication', 'SQLite', 'Prisma ORM', 'Render'],

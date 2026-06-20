@@ -474,7 +474,7 @@ export default function ProjectPage({
       {researchFindings && <ResearchFindingsSection researchFindings={researchFindings} />}
       {beforeAfter && <BeforeAfterSection comparisons={beforeAfter} />}
       {wireframes && <WireframesSection wireframes={wireframes} />}
-      <GallerySection screenshots={screenshots} />
+      {screenshots && screenshots.length > 0 && <GallerySection screenshots={screenshots} />}
       {techStack && <TechStackSection techStack={techStack} />}
       <DecisionsSection decisions={decisions} />
       {outcome && <OutcomeSection outcome={outcome} />}
