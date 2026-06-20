@@ -78,6 +78,116 @@ function ProcessSection({ steps }) {
   )
 }
 
+function ResearchFindingsSection({ researchFindings }) {
+  const { findings, heuristics } = researchFindings
+  const [ref, inView] = useInView({ threshold: 0.15 })
+
+  return (
+    <section className="research">
+      <div className="container">
+        <h2 className="section-title">What Students Told Me</h2>
+        <div ref={ref} className="research__cards">
+          {findings.map((finding, i) => (
+            <div
+              key={i}
+              className={`research__card reveal ${inView ? 'is-visible' : ''}`}
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <span className="research__persona">{finding.persona}</span>
+              <blockquote className="research__quote">"{finding.quote}"</blockquote>
+              <p className="research__context">{finding.context}</p>
+            </div>
+          ))}
+        </div>
+
+        {heuristics && (
+          <div className={`research__heuristics reveal ${inView ? 'is-visible' : ''}`} style={{ transitionDelay: '0.35s' }}>
+            <p className="research__heuristics-label">Nielsen Heuristics — Violations Found</p>
+            <div className="research__heuristics-rows">
+              {heuristics.map((item, i) => (
+                <div key={i} className="research__heuristic">
+                  <span className="research__heuristic-name">{item.heuristic}</span>
+                  <span className="research__heuristic-violation">{item.violation}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
+function BeforeAfterSection({ comparisons }) {
+  const [ref, inView] = useInView({ threshold: 0.15 })
+
+  return (
+    <section className="before-after">
+      <div className="container">
+        <h2 className="section-title">Before and After</h2>
+        <div ref={ref} className="before-after__grid">
+          <div className={`before-after__col reveal ${inView ? 'is-visible' : ''}`}>
+            <p className="before-after__col-head before-after__col-head--before">Before</p>
+            <ul className="before-after__list">
+              {comparisons.map((c, i) => (
+                <li key={i} className="before-after__item before-after__item--before">
+                  <span className="before-after__marker" aria-hidden="true">✕</span>
+                  <span>{c.before}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={`before-after__col reveal ${inView ? 'is-visible' : ''}`} style={{ transitionDelay: '0.12s' }}>
+            <p className="before-after__col-head before-after__col-head--after">After</p>
+            <ul className="before-after__list">
+              {comparisons.map((c, i) => (
+                <li key={i} className="before-after__item before-after__item--after">
+                  <span className="before-after__marker" aria-hidden="true">✓</span>
+                  <span>{c.after}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function OutcomeSection({ outcome }) {
+  const { stats, note } = outcome
+  const [ref, inView] = useInView({ threshold: 0.2 })
+
+  return (
+    <section className="outcome">
+      <div className="container">
+        <h2 className="section-title">Outcome</h2>
+        <div ref={ref} className="outcome__grid">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className={`outcome__card reveal ${inView ? 'is-visible' : ''}`}
+              style={{
+                transitionDelay: `${i * 0.1}s`,
+                '--card-accent': ACCENT_CYCLE[i % 3],
+                '--card-accent-dim': ACCENT_DIM_CYCLE[i % 3],
+              }}
+            >
+              <span className="outcome__value">{stat.value}</span>
+              <span className="outcome__label">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+        {note && (
+          <p className={`outcome__note reveal ${inView ? 'is-visible' : ''}`} style={{ transitionDelay: `${stats.length * 0.1}s` }}>
+            {note}
+          </p>
+        )}
+      </div>
+    </section>
+  )
+}
+
 function GallerySection({ screenshots }) {
   const [ref, inView] = useInView({ threshold: 0.1 })
   const [activeIndex, setActiveIndex] = useState(null)
@@ -269,9 +379,12 @@ export default function ProjectPage({
   secondaryLink,
   problem,
   process,
+  researchFindings,
+  beforeAfter,
   screenshots,
   techStack,
   decisions,
+  outcome,
   reflection,
   nextProject,
 }) {
@@ -318,9 +431,12 @@ export default function ProjectPage({
 
       <OverviewSection problem={problem} role={role} timeline={timeline} type={type} />
       <ProcessSection steps={process} />
+      {researchFindings && <ResearchFindingsSection researchFindings={researchFindings} />}
+      {beforeAfter && <BeforeAfterSection comparisons={beforeAfter} />}
       <GallerySection screenshots={screenshots} />
       {techStack && <TechStackSection techStack={techStack} />}
       <DecisionsSection decisions={decisions} />
+      {outcome && <OutcomeSection outcome={outcome} />}
       <ReflectionSection paragraphs={reflection} />
       <NextProjectSection nextProject={nextProject} />
     </main>
