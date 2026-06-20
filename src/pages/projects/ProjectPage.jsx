@@ -204,7 +204,7 @@ function WireframesSection({ wireframes }) {
             >
               <div className="wireframes__screen">
                 <div className="wireframes__img wireframes__img--lofi">
-                  <ImageWithFallback src={frame.lofi} alt={`${frame.label} wireframe`} label={`${frame.label} — wireframe`} />
+                  <img src={frame.lofi} alt={`${frame.label} wireframe`} loading="lazy" decoding="async" />
                 </div>
                 <span className="wireframes__badge wireframes__badge--lofi">Lo-fi</span>
               </div>
