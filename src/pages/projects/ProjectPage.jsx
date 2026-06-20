@@ -193,6 +193,9 @@ function MockupSection({ mockups }) {
   const [paused, setPaused] = useState(false)
   const [ref, inView] = useInView({ threshold: 0.2 })
 
+  const prev = () => setActive(i => (i - 1 + mockups.length) % mockups.length)
+  const next = () => setActive(i => (i + 1) % mockups.length)
+
   useEffect(() => {
     if (paused || !inView || mockups.length < 2) return
     const t = setInterval(() => setActive(i => (i + 1) % mockups.length), 3500)
@@ -223,6 +226,17 @@ function MockupSection({ mockups }) {
                     decoding="async"
                   />
                 ))}
+
+                <button className="monitor__chevron monitor__chevron--prev" onClick={prev} aria-label="Previous screenshot">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                <button className="monitor__chevron monitor__chevron--next" onClick={next} aria-label="Next screenshot">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
             <div className="monitor__stand">
