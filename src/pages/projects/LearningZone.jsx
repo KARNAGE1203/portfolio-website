@@ -45,6 +45,23 @@ export default function LearningZone() {
           { heuristic: '8 — Aesthetic and Minimalist Design', violation: 'Dashboard prioritised generic announcements over time-sensitive academic information.' },
         ],
       }}
+      wireframes={[
+        {
+          label: 'Dashboard',
+          lofi: '/img/LearningZone Redesign Screenshots/Screenshot 2026-06-20 130010.png',
+          hifi: '/img/LearningZone Redesign Screenshots/Dashboard Page.png',
+        },
+        {
+          label: 'Home',
+          lofi: '/img/LearningZone Redesign Screenshots/Screenshot 2026-06-20 130024.png',
+          hifi: '/img/LearningZone Redesign Screenshots/Home Page.png',
+        },
+        {
+          label: 'Course Info',
+          lofi: '/img/LearningZone Redesign Screenshots/Screenshot 2026-06-20 130037.png',
+          hifi: '/img/LearningZone Redesign Screenshots/Course Info Page.png',
+        },
+      ]}
       beforeAfter={[
         { before: '4 clicks to view assignment grades', after: '1 click — grade summary visible on dashboard load' },
         { before: 'No deadline visibility on the landing screen', after: 'Upcoming deadlines surfaced as urgency cards, sorted by date' },

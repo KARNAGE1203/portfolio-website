@@ -188,6 +188,45 @@ function OutcomeSection({ outcome }) {
   )
 }
 
+function WireframesSection({ wireframes }) {
+  const [ref, inView] = useInView({ threshold: 0.1 })
+
+  return (
+    <section className="wireframes">
+      <div className="container">
+        <h2 className="section-title">From Lo-Fi to Hi-Fi</h2>
+        <div ref={ref} className="wireframes__pairs">
+          {wireframes.map((frame, i) => (
+            <div
+              key={i}
+              className={`wireframes__pair reveal ${inView ? 'is-visible' : ''}`}
+              style={{ transitionDelay: `${i * 0.12}s` }}
+            >
+              <div className="wireframes__screen">
+                <div className="wireframes__img wireframes__img--lofi">
+                  <ImageWithFallback src={frame.lofi} alt={`${frame.label} wireframe`} label={`${frame.label} — wireframe`} />
+                </div>
+                <span className="wireframes__badge wireframes__badge--lofi">Lo-fi</span>
+              </div>
+
+              <span className="wireframes__arrow" aria-hidden="true">→</span>
+
+              <div className="wireframes__screen">
+                <div className="wireframes__img wireframes__img--hifi">
+                  <ImageWithFallback src={frame.hifi} alt={`${frame.label} final`} label={`${frame.label} — final`} />
+                </div>
+                <span className="wireframes__badge wireframes__badge--hifi">Hi-fi</span>
+              </div>
+
+              <p className="wireframes__label">{frame.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function GallerySection({ screenshots }) {
   const [ref, inView] = useInView({ threshold: 0.1 })
   const [activeIndex, setActiveIndex] = useState(null)
@@ -381,6 +420,7 @@ export default function ProjectPage({
   process,
   researchFindings,
   beforeAfter,
+  wireframes,
   screenshots,
   techStack,
   decisions,
@@ -433,6 +473,7 @@ export default function ProjectPage({
       <ProcessSection steps={process} />
       {researchFindings && <ResearchFindingsSection researchFindings={researchFindings} />}
       {beforeAfter && <BeforeAfterSection comparisons={beforeAfter} />}
+      {wireframes && <WireframesSection wireframes={wireframes} />}
       <GallerySection screenshots={screenshots} />
       {techStack && <TechStackSection techStack={techStack} />}
       <DecisionsSection decisions={decisions} />
