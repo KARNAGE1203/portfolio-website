@@ -45,6 +45,16 @@ export default function LearningZone() {
           { heuristic: '8 — Aesthetic and Minimalist Design', violation: 'Dashboard prioritised generic announcements over time-sensitive academic information.' },
         ],
       }}
+      mockups={[
+        { src: '/img/LearningZone Redesign Screenshots/Dashboard Page.webp', alt: 'Dashboard' },
+        { src: '/img/LearningZone Redesign Screenshots/Home Page.webp', alt: 'Home' },
+        { src: '/img/LearningZone Redesign Screenshots/Course Info Page.webp', alt: 'Course Info' },
+        { src: '/img/LearningZone Redesign Screenshots/Grades Page.webp', alt: 'Grades' },
+        { src: '/img/LearningZone Redesign Screenshots/Login Page.webp', alt: 'Login' },
+        { src: '/img/LearningZone Redesign Screenshots/Notifications.webp', alt: 'Notifications' },
+        { src: '/img/LearningZone Redesign Screenshots/Profile.webp', alt: 'Profile' },
+        { src: '/img/LearningZone Redesign Screenshots/Settings Page.webp', alt: 'Settings' },
+      ]}
       wireframes={[
         {
           label: 'Dashboard',

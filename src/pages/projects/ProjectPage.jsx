@@ -188,6 +188,67 @@ function OutcomeSection({ outcome }) {
   )
 }
 
+function MockupSection({ mockups }) {
+  const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const [ref, inView] = useInView({ threshold: 0.2 })
+
+  useEffect(() => {
+    if (paused || !inView || mockups.length < 2) return
+    const t = setInterval(() => setActive(i => (i + 1) % mockups.length), 3500)
+    return () => clearInterval(t)
+  }, [paused, inView, mockups.length])
+
+  return (
+    <section className="mockup-section">
+      <div className="container">
+        <h2 className="section-title">Screens</h2>
+        <div
+          ref={ref}
+          className={`monitor-wrap reveal ${inView ? 'is-visible' : ''}`}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="monitor">
+            <div className="monitor__body">
+              <div className="monitor__camera" aria-hidden="true" />
+              <div className="monitor__screen">
+                {mockups.map((m, i) => (
+                  <img
+                    key={m.src}
+                    src={m.src}
+                    alt={m.alt}
+                    className={`monitor__slide${i === active ? ' monitor__slide--active' : ''}`}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="monitor__stand">
+              <div className="monitor__neck" />
+              <div className="monitor__base" />
+            </div>
+          </div>
+
+          <div className="monitor__dots" role="tablist" aria-label="Screenshot navigation">
+            {mockups.map((m, i) => (
+              <button
+                key={i}
+                role="tab"
+                aria-selected={i === active}
+                aria-label={`View ${m.alt}`}
+                className={`monitor__dot${i === active ? ' monitor__dot--active' : ''}`}
+                onClick={() => setActive(i)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function WireframesSection({ wireframes }) {
   const [ref, inView] = useInView({ threshold: 0.1 })
 
@@ -421,6 +482,7 @@ export default function ProjectPage({
   researchFindings,
   beforeAfter,
   wireframes,
+  mockups,
   screenshots,
   techStack,
   decisions,
@@ -474,6 +536,7 @@ export default function ProjectPage({
       {researchFindings && <ResearchFindingsSection researchFindings={researchFindings} />}
       {beforeAfter && <BeforeAfterSection comparisons={beforeAfter} />}
       {wireframes && <WireframesSection wireframes={wireframes} />}
+      {mockups && mockups.length > 0 && <MockupSection mockups={mockups} />}
       {screenshots && screenshots.length > 0 && <GallerySection screenshots={screenshots} />}
       {techStack && <TechStackSection techStack={techStack} />}
       <DecisionsSection decisions={decisions} />
