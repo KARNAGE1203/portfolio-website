@@ -127,7 +127,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1200px;
+  perspective: 900px;
+  perspective-origin: center center;
+}
+
+/* GSAP tornado wrapper — separates entrance animation from float animation */
+.hsym-anim-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
 }
 
 .hsym-main {
