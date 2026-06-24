@@ -541,7 +541,7 @@ export default function ProjectPage({
           </div>
 
           <div className="project-hero__image fade-up" style={{ animationDelay: '0.2s' }}>
-            <ImageWithFallback src={heroImage} alt={name} label={name} />
+            <img src={heroImage} alt={name} loading="eager" decoding="async" />
           </div>
         </div>
       </section>
