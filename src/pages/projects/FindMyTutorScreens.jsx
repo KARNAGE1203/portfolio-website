@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import useInView from '../../hooks/useInView'
 import './FindMyTutorScreens.css'
 
-const FIGMA_URL = 'https://www.figma.com/proto/YOUR_LINK_HERE'
+const FIGMA_URL = 'https://www.figma.com/design/c1LQn9C78mxJXqc2XBqSWB/Tutor-Scheduling-App?node-id=87-384&t=olTOrF0TxfQ1ewq3-1'
 
 function PhoneFrame({ src, alt, active }) {
   return (
