@@ -24,20 +24,32 @@ export default function Hero() {
     return () => lenis.off('scroll', handleScroll)
   }, [])
 
-  /* GSAP tornado: flies in from the front (z-axis) while spinning */
+  /* GSAP: each character tumbles in individually from the z-axis */
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const ctx = gsap.context(() => {
-      gsap.fromTo('.hsym-anim-wrap',
-        { z: 1100, rotationY: -1080, x: -80, opacity: 0 },
-        {
-          z: 0, rotationY: 0, x: 0, opacity: 1,
-          duration: 2.2,
-          ease: 'expo.out',
-          delay: 0.5,
-        }
-      )
+      const tl = gsap.timeline({ delay: 0.45 })
+
+      tl
+        .set(['.hsym-char-l', '.hsym-char-s', '.hsym-char-r'], { opacity: 0 })
+        // < — tumbles from upper-front-left
+        .fromTo('.hsym-char-l',
+          { z: 380, rotationX: -140, rotationY: 65, opacity: 0 },
+          { z: 0, rotationX: 0, rotationY: 0, opacity: 1, duration: 2.2, ease: 'power2.out' }
+        )
+        // / — barrel-rolls from directly in front
+        .fromTo('.hsym-char-s',
+          { z: 430, rotationX: 180, rotationZ: 210, opacity: 0 },
+          { z: 0, rotationX: 0, rotationZ: 0, opacity: 1, duration: 1.9, ease: 'power2.out' },
+          '-=1.5'
+        )
+        // > — mirrors < from upper-front-right
+        .fromTo('.hsym-char-r',
+          { z: 380, rotationX: 140, rotationY: -65, opacity: 0 },
+          { z: 0, rotationX: 0, rotationY: 0, opacity: 1, duration: 2.2, ease: 'power2.out' },
+          '-=1.6'
+        )
     })
 
     return () => ctx.revert()

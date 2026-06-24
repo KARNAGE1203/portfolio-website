@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 900px;
+  perspective: 500px;
   perspective-origin: center center;
 }
 
@@ -140,6 +140,7 @@
 }
 
 .hsym-main {
+  transform-style: preserve-3d;
   font-family: var(--font-mono);
   font-size: clamp(10rem, 19vw, 22rem);
   font-weight: 700;
