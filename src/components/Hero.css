@@ -23,6 +23,21 @@
   padding-bottom: 80px;
 }
 
+/* ─── Character spans (GSAP targets) ────────────────────────────────── */
+.hsym-char-l,
+.hsym-char-s,
+.hsym-char-r {
+  display: inline-block;
+}
+
+/* ─── Staggered text entrance ────────────────────────────────────────── */
+.hero-greeting { animation: fadeUp 0.7s var(--ease-out-expo) 0.10s both; }
+.hero-name     { animation: fadeUp 0.7s var(--ease-out-expo) 0.26s both; }
+.hero-tagline  { animation: fadeUp 0.7s var(--ease-out-expo) 0.44s both; }
+.hero-desc     { animation: fadeUp 0.7s var(--ease-out-expo) 0.58s both; }
+.hero-avail    { animation: fadeUp 0.7s var(--ease-out-expo) 0.70s both; }
+.hero-actions  { animation: fadeUp 0.7s var(--ease-out-expo) 0.80s both; }
+
 /* ─── Left column: text ──────────────────────────────────────────────── */
 .hero-greeting {
   font-family: var(--font-body);
@@ -204,6 +219,22 @@
   .hero-scroll-cue__line { animation: none; }
 
   .hsym-main { transform: rotateY(-13deg) rotateX(6deg); }
+
+  .hero-greeting,
+  .hero-name,
+  .hero-tagline,
+  .hero-desc,
+  .hero-avail,
+  .hero-actions {
+    animation: none;
+    opacity: 1;
+  }
+
+  .hsym-char-l,
+  .hsym-char-s,
+  .hsym-char-r {
+    opacity: 1 !important;
+  }
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────── */
