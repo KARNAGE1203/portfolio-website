@@ -11,7 +11,7 @@ export default function FindMyTutor() {
       timeline="April–May 2026"
       type="UX Research + UI Design"
       stack={['Figma', 'UX Research', 'Design Systems', 'Prototyping']}
-      heroImage="/img/FindMyTutor Screenshots/Final Wireframes.png"
+      heroImage="/img/FindMyTutor Screenshots/TopImage.png"
       primaryLink={{ label: 'View on Behance', href: 'https://www.behance.net/gallery/250146041/FindMyTutor-A-Tutor-Scheduling-App' }}
       secondaryLink={null}
       problem="Finding a tutor is fragmented — parents search across platforms, text friends for recommendations, and still end up with someone unvetted. Students have no reliable way to discover, evaluate, and book a tutor in one place."
