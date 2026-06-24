@@ -498,6 +498,7 @@ export default function ProjectPage({
   wireframes,
   mockups,
   screenshots,
+  customGallery,
   techStack,
   decisions,
   outcome,
@@ -551,7 +552,9 @@ export default function ProjectPage({
       {beforeAfter && <BeforeAfterSection comparisons={beforeAfter} />}
       {wireframes && <WireframesSection wireframes={wireframes} />}
       {mockups && mockups.length > 0 && <MockupSection mockups={mockups} />}
-      {screenshots && screenshots.length > 0 && <GallerySection screenshots={screenshots} />}
+      {customGallery
+        ? customGallery
+        : screenshots && screenshots.length > 0 && <GallerySection screenshots={screenshots} />}
       {techStack && <TechStackSection techStack={techStack} />}
       <DecisionsSection decisions={decisions} />
       {outcome && <OutcomeSection outcome={outcome} />}

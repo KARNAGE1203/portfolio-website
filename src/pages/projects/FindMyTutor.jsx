@@ -1,4 +1,5 @@
 import ProjectPage from './ProjectPage'
+import FindMyTutorScreens from './FindMyTutorScreens'
 
 export default function FindMyTutor() {
   return (
@@ -19,11 +20,7 @@ export default function FindMyTutor() {
         { number: '02', title: 'Wireframes', icon: 'edit', description: 'Lo-fi wireframes across 6 screens establishing navigation logic and content hierarchy.' },
         { number: '03', title: 'Hi-Fi', icon: 'eye', description: 'Design system defined first, then hi-fi screens built on top. Clickable prototype published on Behance.' },
       ]}
-      screenshots={[
-        { src: '/img/FindMyTutor Screenshots/Final Wireframes.png', alt: 'FindMyTutor final wireframes' },
-        { src: '/img/FindMyTutor Screenshots/Lofi Wireframes.png', alt: 'FindMyTutor lo-fi wireframes' },
-        { src: '/img/FindMyTutor Screenshots/The process.png', alt: 'FindMyTutor design process' },
-      ]}
+      customGallery={<FindMyTutorScreens />}
       techStack={null}
       decisions={[
         {
