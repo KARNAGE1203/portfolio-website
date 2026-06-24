@@ -3,33 +3,30 @@ import useInView from '../../hooks/useInView'
 import './FindMyTutorScreens.css'
 
 const FIGMA_URL = 'https://www.figma.com/design/c1LQn9C78mxJXqc2XBqSWB/Tutor-Scheduling-App?node-id=87-384&t=olTOrF0TxfQ1ewq3-1'
+const BASE = '/img/FindMyTutor Screenshots'
 
-function PhoneFrame({ src, alt, active }) {
-  return (
-    <div className={`pf${active ? ' pf--active' : ''}`}>
-      <div className="pf__notch" aria-hidden="true" />
-      <div className="pf__screen">
-        <img src={src} alt={alt} loading="lazy" decoding="async" />
-      </div>
-      <div className="pf__indicator" aria-hidden="true" />
-    </div>
-  )
-}
+const LOFI  = [1,2,3,4,5,6].map(n => ({ src: `${BASE}/Lofi (${n}).png`,  alt: `Lo-fi wireframe ${n}` }))
+const HIFI  = [1,2,3,4].map(n =>   ({ src: `${BASE}/Hifi (${n}).png`,  alt: `Hi-fi screen ${n}` }))
+const DS    = [{ src: `${BASE}/Design System.png`, alt: 'Design system — components and tokens' }]
 
-function PhoneRow({ frames, caption }) {
+// ── Phone frame with internal crossfade slideshow ─────────────────────
+function PhoneSlideshow({ frames, caption }) {
+  const [active, setActive] = useState(0)
   const [playing, setPlaying] = useState(false)
-  const [activeIdx, setActiveIdx] = useState(0)
-  const showToggle = frames.length > 1
+  const [paused,  setPaused]  = useState(false)
+
+  const prev = () => setActive(i => (i - 1 + frames.length) % frames.length)
+  const next = () => setActive(i => (i + 1) % frames.length)
 
   useEffect(() => {
-    if (!playing || frames.length < 2) return
-    const t = setInterval(() => setActiveIdx(i => (i + 1) % frames.length), 2500)
+    if (!playing || paused) return
+    const t = setInterval(() => setActive(i => (i + 1) % frames.length), 2500)
     return () => clearInterval(t)
-  }, [playing, frames.length])
+  }, [playing, paused, frames.length])
 
   return (
-    <div className="pf-row-wrap">
-      {showToggle && (
+    <div className="pf-show">
+      <div className="pf-show__header">
         <button
           className={`pf-toggle${playing ? ' pf-toggle--playing' : ''}`}
           onClick={() => setPlaying(p => !p)}
@@ -37,32 +34,70 @@ function PhoneRow({ frames, caption }) {
         >
           {playing ? (
             <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <rect x="6" y="4" width="4" height="16" rx="1" />
-              <rect x="14" y="4" width="4" height="16" rx="1" />
+              <rect x="6" y="4" width="4" height="16" rx="1"/>
+              <rect x="14" y="4" width="4" height="16" rx="1"/>
             </svg>
           ) : (
             <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M8 5v14l11-7z" />
+              <path d="M8 5v14l11-7z"/>
             </svg>
           )}
           {playing ? 'Pause' : 'Play'}
         </button>
-      )}
-      <div className="pf-row">
-        {frames.map((frame, i) => (
-          <PhoneFrame
+      </div>
+
+      <div
+        className="pf-show__frame-wrap"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="pf">
+          <div className="pf__notch" aria-hidden="true" />
+          <div className="pf__screen">
+            {frames.map((frame, i) => (
+              <img
+                key={i}
+                src={frame.src}
+                alt={frame.alt}
+                className={`pf__slide${i === active ? ' pf__slide--active' : ''}`}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            ))}
+            <button className="pf__chevron pf__chevron--prev" onClick={prev} aria-label="Previous screen">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button className="pf__chevron pf__chevron--next" onClick={next} aria-label="Next screen">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div className="pf__indicator" aria-hidden="true" />
+        </div>
+      </div>
+
+      <div className="pf-show__dots" role="tablist" aria-label="Screen navigation">
+        {frames.map((f, i) => (
+          <button
             key={i}
-            src={frame.src}
-            alt={frame.alt}
-            active={showToggle && playing && i === activeIdx}
+            role="tab"
+            aria-selected={i === active}
+            aria-label={`View screen ${i + 1}`}
+            className={`pf-show__dot${i === active ? ' pf-show__dot--active' : ''}`}
+            onClick={() => setActive(i)}
           />
         ))}
       </div>
+
       {caption && <p className="pf-caption">{caption}</p>}
     </div>
   )
 }
 
+// ── Design system grid ────────────────────────────────────────────────
 function DSGrid({ images }) {
   const [expanded, setExpanded] = useState(null)
 
@@ -89,15 +124,9 @@ function DSGrid({ images }) {
           </button>
         ))}
       </div>
-
       {expanded !== null && (
         <div className="lightbox" onClick={() => setExpanded(null)}>
-          <button
-            type="button"
-            className="lightbox__close"
-            aria-label="Close"
-            onClick={() => setExpanded(null)}
-          >×</button>
+          <button type="button" className="lightbox__close" aria-label="Close" onClick={() => setExpanded(null)}>×</button>
           <div className="lightbox__content" onClick={e => e.stopPropagation()}>
             <img src={images[expanded].src} alt={images[expanded].alt} />
           </div>
@@ -107,6 +136,7 @@ function DSGrid({ images }) {
   )
 }
 
+// ── Main ──────────────────────────────────────────────────────────────
 export default function FindMyTutorScreens() {
   const [ref1, inView1] = useInView({ threshold: 0.1 })
   const [ref2, inView2] = useInView({ threshold: 0.1 })
@@ -115,7 +145,7 @@ export default function FindMyTutorScreens() {
   return (
     <div className="fmt-screens">
 
-      {/* ── 01 Lo-Fi Wireframes ── */}
+      {/* 01 — Lo-Fi Wireframes */}
       <section ref={ref1} className={`fmt-section reveal ${inView1 ? 'is-visible' : ''}`}>
         <div className="container">
           <span className="fmt-eyebrow">01 — Lo-Fi</span>
@@ -123,16 +153,14 @@ export default function FindMyTutorScreens() {
           <p className="fmt-subtext">
             Information architecture and navigation logic established before any visual decisions were made.
           </p>
-          <PhoneRow
-            frames={[
-              { src: '/img/FindMyTutor Screenshots/Lofi Wireframes.webp', alt: 'Lo-fi wireframes' },
-            ]}
+          <PhoneSlideshow
+            frames={LOFI}
             caption="6 screens mapped in lo-fi before moving to design system"
           />
         </div>
       </section>
 
-      {/* ── 02 Design System ── */}
+      {/* 02 — Design System */}
       <section ref={ref2} className={`fmt-section reveal ${inView2 ? 'is-visible' : ''}`}>
         <div className="container">
           <span className="fmt-eyebrow">02 — Foundations</span>
@@ -140,15 +168,11 @@ export default function FindMyTutorScreens() {
           <p className="fmt-subtext">
             Type scale, colour tokens, spacing units, and component library defined before any hi-fi screen was produced.
           </p>
-          <DSGrid
-            images={[
-              { src: '/img/FindMyTutor Screenshots/The process.webp', alt: 'Design system — components and tokens' },
-            ]}
-          />
+          <DSGrid images={DS} />
         </div>
       </section>
 
-      {/* ── 03 Hi-Fi Prototype ── */}
+      {/* 03 — Hi-Fi Prototype */}
       <section ref={ref3} className={`fmt-section reveal ${inView3 ? 'is-visible' : ''}`}>
         <div className="container">
           <span className="fmt-eyebrow">03 — Final Design</span>
@@ -156,11 +180,7 @@ export default function FindMyTutorScreens() {
           <p className="fmt-subtext">
             Five-screen clickable prototype — Home, Tutor Profile, Book a Session, Booking Confirmation, My Bookings.
           </p>
-          <PhoneRow
-            frames={[
-              { src: '/img/FindMyTutor Screenshots/Final Wireframes.webp', alt: 'Hi-fi prototype screens' },
-            ]}
-          />
+          <PhoneSlideshow frames={HIFI} />
           <div className="fmt-cta-wrap">
             <a
               href={FIGMA_URL}

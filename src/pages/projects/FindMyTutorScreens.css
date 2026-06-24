@@ -1,4 +1,3 @@
-/* Sections inherit padding from .project-page section rule */
 .fmt-section {
   border-top: 1px solid var(--border);
 }
@@ -22,7 +21,7 @@
   margin: 0 0 36px;
 }
 
-/* ─── Phone frame ─────────────────────────────────────────── */
+/* ─── Phone frame ──────────────────────────────────────────── */
 .pf {
   display: inline-flex;
   flex-direction: column;
@@ -31,14 +30,6 @@
   border: 3px solid #2A2D3E;
   border-radius: 32px;
   padding: 12px 12px 10px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pf--active {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent-dim), 0 0 24px rgba(108, 99, 255, 0.15);
 }
 
 .pf__notch {
@@ -51,20 +42,61 @@
 }
 
 .pf__screen {
-  width: 176px;
-  height: 350px;
+  position: relative;
+  width: 220px;
+  height: 440px;
   border-radius: 22px;
   overflow: hidden;
   background: #111;
 }
 
-.pf__screen img {
+/* Slideshow images */
+.pf__slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: top center;
   display: block;
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
+
+.pf__slide--active {
+  opacity: 1;
+}
+
+/* Chevrons inside the phone screen */
+.pf__chevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.pf__screen:hover .pf__chevron {
+  opacity: 1;
+}
+
+.pf__chevron:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.pf__chevron--prev { left: 7px; }
+.pf__chevron--next { right: 7px; }
 
 .pf__indicator {
   width: 40px;
@@ -75,19 +107,55 @@
   flex-shrink: 0;
 }
 
-/* ─── Phone row ───────────────────────────────────────────── */
-.pf-row-wrap {
-  position: relative;
-  padding-top: 40px;
+/* ─── Slideshow wrapper ────────────────────────────────────── */
+.pf-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.pf-show__header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.pf-show__frame-wrap {
+  /* centering handled by parent flex */
+}
+
+.pf-show__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pf-show__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease;
+  padding: 0;
+}
+
+.pf-show__dot--active {
+  background: var(--accent);
+  transform: scale(1.4);
+}
+
+.pf-show__dot:hover:not(.pf-show__dot--active) {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Play / pause toggle ──────────────────────────────────── */
 .pf-toggle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  position: absolute;
-  top: 0;
-  right: 0;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 500;
@@ -105,19 +173,6 @@
   background: rgba(108, 99, 255, 0.12);
 }
 
-.pf-row {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 16px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.pf-row::-webkit-scrollbar {
-  display: none;
-}
-
 .pf-caption {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -126,7 +181,7 @@
   letter-spacing: 0.05em;
 }
 
-/* ─── Design system grid ──────────────────────────────────── */
+/* ─── Design system grid ───────────────────────────────────── */
 .ds-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -135,7 +190,7 @@
 
 .ds-grid--single .ds-grid__item {
   grid-column: 1 / -1;
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .ds-grid__item {
@@ -184,7 +239,7 @@
   opacity: 1;
 }
 
-/* ─── Figma CTA ───────────────────────────────────────────── */
+/* ─── Figma CTA ────────────────────────────────────────────── */
 .fmt-cta-wrap {
   display: flex;
   justify-content: center;
@@ -199,7 +254,7 @@
   padding: 14px 32px;
 }
 
-/* ─── Responsive ──────────────────────────────────────────── */
+/* ─── Responsive ───────────────────────────────────────────── */
 @media (max-width: 640px) {
   .ds-grid {
     grid-template-columns: 1fr;
@@ -212,5 +267,10 @@
   .fmt-cta {
     width: 100%;
     justify-content: center;
+  }
+
+  .pf__screen {
+    width: 185px;
+    height: 370px;
   }
 }
