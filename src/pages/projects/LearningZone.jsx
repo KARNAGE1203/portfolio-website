@@ -10,7 +10,7 @@ export default function LearningZone() {
       timeline="May–June 2026"
       type="Full Stack + UX Research"
       stack={['React', 'TypeScript', 'Node.js', 'Express', 'SQLite']}
-      heroImage="/img/LearningZone Redesign Screenshots/Dashboard Page.png"
+      heroImage="/img/LearningZone Redesign Screenshots/TopImage.png"
       primaryLink={{ label: 'View on Behance', href: 'https://www.behance.net/gallery/250928899/LearningZone-Redesign-Project' }}
       secondaryLink={{ label: 'View on GitHub', href: 'https://github.com/KARNAGE1203/LearningZone-Redesign-Project' }}
       problem="De Montfort University's LearningZone platform is the central hub for every student — courses, assignments, deadlines, grades, and support all live there. But the experience it delivers does not match that responsibility. Navigation is inconsistent and unintuitive. Visual hierarchy gives no clear signal about what matters. Key actions require too many steps to complete. As a first-year student using it daily, I experienced these failures firsthand. So I decided to fix them."
