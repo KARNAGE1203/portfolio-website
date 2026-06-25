@@ -321,17 +321,21 @@ function GallerySection({ screenshots }) {
         <h2 className="section-title">Screens</h2>
         <div ref={ref} className="gallery__grid">
           {screenshots.map((shot, i) => (
-            <button
-              key={shot.src}
-              type="button"
-              className={`gallery__item reveal ${inView ? 'is-visible' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-              onClick={() => setActiveIndex(i)}
-              aria-label={`Expand screenshot: ${shot.alt}`}
-            >
-              <ImageWithFallback src={shot.src} alt={shot.alt} label={shot.alt} />
-              <span className="gallery__item-overlay">View to expand</span>
-            </button>
+            <div key={shot.src} className="gallery__item-wrap">
+              <button
+                type="button"
+                className={`gallery__item reveal ${inView ? 'is-visible' : ''}`}
+                style={{ transitionDelay: `${i * 0.1}s` }}
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Expand screenshot: ${shot.alt}`}
+              >
+                <ImageWithFallback src={shot.src} alt={shot.alt} label={shot.alt} />
+                <span className="gallery__item-overlay">View to expand</span>
+              </button>
+              {shot.label && (
+                <p className="gallery__item-label">{shot.label}</p>
+              )}
+            </div>
           ))}
         </div>
       </div>
