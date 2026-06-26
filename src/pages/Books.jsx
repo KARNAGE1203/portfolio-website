@@ -67,8 +67,17 @@ export default function Books() {
           </BookCard>
 
           <BookCard>
-            <div className="book-card__cover book-card__cover--placeholder">
-              <span className="book-card__placeholder-text">The Foreign Land: Second Year</span>
+            <div className="book-card__cover book-card__cover--teaser">
+              <img
+                src="/img/The Foreign Land Y2 Cover.png"
+                alt="The Foreign Land: Second Year — Coming Soon"
+                className="book-card__teaser-img"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="book-card__teaser-overlay" aria-hidden="true">
+                <span className="book-card__teaser-label">Coming Soon</span>
+              </div>
             </div>
             <div className="book-card__content">
               <span className="badge badge--soon">Coming Soon</span>
