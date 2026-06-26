@@ -69,7 +69,7 @@ export default function Books() {
           <BookCard>
             <div className="book-card__cover book-card__cover--teaser">
               <img
-                src="/img/The Foreign Land Y2 Cover.png"
+                src="/img/The Foreign Land Y2 Cover.webp"
                 alt="The Foreign Land: Second Year — Coming Soon"
                 className="book-card__teaser-img"
                 loading="lazy"

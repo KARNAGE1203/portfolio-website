@@ -5,9 +5,9 @@ import './FindMyTutorScreens.css'
 const FIGMA_URL = 'https://www.figma.com/design/c1LQn9C78mxJXqc2XBqSWB/Tutor-Scheduling-App?node-id=87-384&t=olTOrF0TxfQ1ewq3-1'
 const BASE = '/img/FindMyTutor Screenshots'
 
-const LOFI  = [1,2,3,4,5,6].map(n => ({ src: `${BASE}/Lofi (${n}).png`,  alt: `Lo-fi wireframe ${n}` }))
-const HIFI  = [1,2,3,4].map(n =>   ({ src: `${BASE}/Hifi (${n}).png`,  alt: `Hi-fi screen ${n}` }))
-const DS    = [{ src: `${BASE}/Design System.png`, alt: 'Design system — components and tokens' }]
+const LOFI  = [1,2,3,4,5,6].map(n => ({ src: `${BASE}/Lofi (${n}).webp`,  alt: `Lo-fi wireframe ${n}` }))
+const HIFI  = [1,2,3,4].map(n =>   ({ src: `${BASE}/Hifi (${n}).webp`,  alt: `Hi-fi screen ${n}` }))
+const DS    = [{ src: `${BASE}/Design System.webp`, alt: 'Design system — components and tokens' }]
 
 // ── Phone frame with internal crossfade slideshow ─────────────────────
 function PhoneSlideshow({ frames, caption }) {
