@@ -6,3 +6,27 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Long-term cache for hashed JS/CSS chunks (Vite adds content hashes)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Long-term cache for images
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Long-term cache for self-hosted fonts (served from assets/)
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Short cache for HTML (always revalidate so new deploys propagate)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

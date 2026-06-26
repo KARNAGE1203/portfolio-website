@@ -1,0 +1,22 @@
+.loading-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-fallback__bar {
+  height: 100%;
+  width: 45%;
+  background: var(--accent);
+  animation: loading-sweep 1s ease-in-out infinite;
+}
+
+@keyframes loading-sweep {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(280%); }
+}
