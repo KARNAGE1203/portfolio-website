@@ -10,8 +10,8 @@ export default function LittleLemon() {
       timeline="May 2026"
       type="Frontend Development"
       stack={['React', 'JavaScript', 'CSS', 'React Router']}
-      heroImage="/img/LittleLemon Screenshots/Home Page.png"
-      primaryLink={{ label: 'View Live Site', href: 'https://littlelemonrestaurantproj.netlify.app' }}
+      heroImage="/img/LittleLemon Screenshots/Home Page.webp"
+      primaryLink={{ label: 'View Live Site', href: 'https://littlelemon-restaurant-project.netlify.app/' }}
       secondaryLink={{ label: 'View on GitHub', href: 'https://github.com/KARNAGE1203/little-lemon-restaurant' }}
       problem="Most frontend projects prove you can build a component. This one was designed to prove something harder — that design decisions and development decisions are the same decision made at different stages. Every layout choice was justified before a line of code was written. Every component was designed for reuse before it was built. The result is a deployed, multi-page React application where the architecture reflects the design, and the design reflects how a real restaurant user actually moves through a booking and ordering experience."
       process={[
@@ -20,10 +20,10 @@ export default function LittleLemon() {
         { number: '03', title: 'Deploy', icon: 'send', description: 'Deployed live on Netlify with automatic GitHub deploys on every push.' },
       ]}
       screenshots={[
-        { src: '/img/LittleLemon Screenshots/Home Page.png', alt: 'Little Lemon home page', label: 'Home — Weekly specials and value proposition' },
-        { src: '/img/LittleLemon Screenshots/Menu Page.png', alt: 'Little Lemon menu page', label: 'Menu — Browsable items with category filtering' },
-        { src: '/img/LittleLemon Screenshots/Table Reservation.png', alt: 'Little Lemon reservation page', label: 'Reservations — Table booking with live availability' },
-        { src: '/img/LittleLemon Screenshots/Cart.png', alt: 'Little Lemon cart page', label: 'Cart — Persistent state across all pages via Context API' },
+        { src: '/img/LittleLemon Screenshots/Home Page.webp', alt: 'Little Lemon home page', label: 'Home — Weekly specials and value proposition' },
+        { src: '/img/LittleLemon Screenshots/Menu Page.webp', alt: 'Little Lemon menu page', label: 'Menu — Browsable items with category filtering' },
+        { src: '/img/LittleLemon Screenshots/Table Reservation.webp', alt: 'Little Lemon reservation page', label: 'Reservations — Table booking with live availability' },
+        { src: '/img/LittleLemon Screenshots/Cart.webp', alt: 'Little Lemon cart page', label: 'Cart — Persistent state across all pages via Context API' },
       ]}
       techStack={{
         frontend: ['React 18', 'JavaScript', 'CSS3', 'Context API', 'React Router', 'Netlify'],
