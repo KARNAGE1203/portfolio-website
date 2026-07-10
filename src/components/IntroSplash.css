@@ -1,0 +1,71 @@
+/* ─── Overlay ─────────────────────────────────────────── */
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999; /* same layer as LoadingFallback */
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  /* curtain lift at the end — timed after the draw + name reveal */
+  animation: intro-splash-exit 0.55s cubic-bezier(0.76, 0, 0.24, 1) 2.35s forwards;
+}
+
+@keyframes intro-splash-exit {
+  to { transform: translateY(-100%); }
+}
+
+/* ─── Stage: glyphs + name stacked in one cell ────────── */
+.intro-splash__stage {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.intro-splash__stage > * {
+  grid-area: 1 / 1;
+}
+
+/* ─── The pen-drawn </> outline ───────────────────────── */
+.intro-splash__glyphs {
+  width: min(88vw, 480px);
+  height: auto;
+  opacity: 0.45;
+}
+
+.intro-splash__glyph {
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* pathLength=1 in the markup normalises every path to length 1 */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: intro-splash-draw 0.85s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes intro-splash-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ─── The name ────────────────────────────────────────── */
+.intro-splash__name {
+  font-family: var(--font-display, 'Bricolage Grotesque'), sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 8vw, 2.4rem);
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: intro-splash-name 0.6s cubic-bezier(0.25, 1, 0.5, 1) 1.2s forwards;
+}
+
+.intro-splash__tld {
+  color: var(--accent);
+}
+
+@keyframes intro-splash-name {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

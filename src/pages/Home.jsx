@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import useScrollBackground from '../hooks/useScrollBackground'
 import Hero from '../components/Hero'
+import IntroSplash from '../components/IntroSplash'
 import Projects from '../components/Projects'
 import About from '../components/About'
 import Book from '../components/Book'
@@ -27,6 +28,7 @@ export default function Home() {
 
   return (
     <>
+      <IntroSplash />
       <ScrollBackground active={activeSection} />
       <main>
         <Hero />
