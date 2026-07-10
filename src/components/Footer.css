@@ -27,9 +27,18 @@
   color: var(--text-primary);
 }
 
+.footer__tagline {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin-top: 3px;
+}
+
 .footer__copy {
   color: var(--text-muted);
   font-size: 0.85rem;
+  margin-top: 6px;
 }
 
 .footer__nav {

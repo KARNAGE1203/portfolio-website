@@ -43,7 +43,7 @@
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.75);
   margin: 0 0 14px;
 }
 
@@ -78,7 +78,7 @@
 
 .hero-desc {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.65;
   max-width: 44ch;
   margin: 0 0 28px;
@@ -148,7 +148,7 @@
   line-height: 1;
   white-space: nowrap;
   user-select: none;
-  color: rgba(62, 56, 112, 0.72);
+  color: rgba(108, 99, 255, 0.62);
   text-shadow:
     1.5px 1.5px 0 rgba(50, 45, 96, 0.92),
     3px 3px 0 rgba(44, 40, 88, 0.9),

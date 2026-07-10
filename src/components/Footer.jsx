@@ -9,6 +9,7 @@ export default function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand">
           <Link to="/" className="footer__logo">Danish Saini</Link>
+          <p className="footer__tagline">Designed in Figma. Built in React. Shipped to Netlify.</p>
           <p className="footer__copy">© 2026 Danish Saini</p>
         </div>
 

@@ -53,23 +53,22 @@ function ProcessSection({ steps }) {
     <section className="process">
       <div className="container">
         <h2 className="section-title">Process</h2>
-        <div ref={ref} className="process__grid">
+        <div ref={ref} className="process__steps">
           {steps.map((step, i) => (
             <div
               key={step.title}
-              className={`process__card reveal ${inView ? 'is-visible' : ''}`}
+              className={`process__step reveal ${inView ? 'is-visible' : ''}`}
               style={{
-                transitionDelay: `${i * 0.1}s`,
+                transitionDelay: `${i * 0.12}s`,
                 '--card-accent': ACCENT_CYCLE[i % 3],
-                '--card-accent-dim': ACCENT_DIM_CYCLE[i % 3],
               }}
             >
-              <span className="icon-badge">
+              <span className="process__step-num">{step.number}</span>
+              <span className="icon-badge icon-badge--sm">
                 <Icon name={step.icon} />
               </span>
-              <span className="process__number">{step.number}</span>
-              <h3 className="process__title">{step.title}</h3>
-              <p className="process__desc">{step.description}</p>
+              <h3 className="process__step-title">{step.title}</h3>
+              <p className="process__step-desc">{step.description}</p>
             </div>
           ))}
         </div>
@@ -420,23 +419,26 @@ function DecisionsSection({ decisions }) {
     <section className="decisions">
       <div className="container">
         <h2 className="section-title">Decisions</h2>
-        <div ref={ref} className="decisions__grid">
+        <div ref={ref} className="decisions__list">
           {decisions.map((decision, i) => (
             <div
               key={decision.title}
-              className={`decisions__card reveal ${inView ? 'is-visible' : ''}`}
+              className={`decisions__row reveal ${inView ? 'is-visible' : ''}`}
               style={{
                 transitionDelay: `${i * 0.1}s`,
                 '--card-accent': ACCENT_CYCLE[i % 3],
-                '--card-accent-dim': ACCENT_DIM_CYCLE[i % 3],
               }}
             >
-              <span className="icon-badge">
-                <Icon name={decision.icon} />
-              </span>
-              <span className="decisions__number">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="decisions__title">{decision.title}</h3>
-              <p className="decisions__desc">{decision.description}</p>
+              <div className="decisions__row-left">
+                <span className="decisions__row-num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="icon-badge">
+                  <Icon name={decision.icon} />
+                </span>
+              </div>
+              <div className="decisions__row-right">
+                <h3 className="decisions__row-title">{decision.title}</h3>
+                <p className="decisions__row-desc">{decision.description}</p>
+              </div>
             </div>
           ))}
         </div>

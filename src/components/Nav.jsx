@@ -18,7 +18,10 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled || menuOpen ? 'nav--scrolled' : ''}`}>
       <div className="container nav__inner">
-        <Link to="/" className="nav__logo" onClick={handleLinkClick}>Danish Saini</Link>
+        <Link to="/" className="nav__logo" onClick={handleLinkClick}>
+          <span className="nav__logo-mark" aria-hidden="true">&lt;/&gt;</span>
+          Danish Saini
+        </Link>
 
         <nav className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
           <NavLink

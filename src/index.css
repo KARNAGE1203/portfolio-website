@@ -9,8 +9,8 @@
   --accent-3: #FBBF24;
   --accent-3-dim: #FBBF2420;
   --text-primary: #FFFFFF;
-  --text-secondary: #9090B0;
-  --text-muted: #8888A2;
+  --text-secondary: #9494B8;
+  --text-muted: #6C6C90;
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -116,7 +116,8 @@ section {
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: translateY(0px);
+  transition-duration: 0.06s;
 }
 
 .btn-primary {
@@ -125,7 +126,9 @@ section {
 }
 
 .btn-primary:hover {
-  opacity: 0.88;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+  background: #7870FF;
 }
 
 .btn-outline {
@@ -137,6 +140,7 @@ section {
 .btn-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: rgba(108, 99, 255, 0.06);
 }
 
 .btn-ghost {
