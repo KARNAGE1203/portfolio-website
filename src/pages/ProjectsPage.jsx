@@ -47,8 +47,7 @@ export default function ProjectsPage() {
       <section className="projects-hero">
         <PageHeroMarquee word="Projects" />
         <div className="container">
-          <span className="section-label fade-up" style={{ animationDelay: '0s' }}>Selected Work</span>
-          <h1 className="projects-hero__heading fade-up" style={{ animationDelay: '0.15s' }}>Three projects.</h1>
+          <h1 className="projects-hero__heading fade-up" style={{ animationDelay: '0s' }}>Three projects.</h1>
           <p className="projects-hero__subtext fade-up" style={{ animationDelay: '0.3s' }}>End to end. Research to deployment.</p>
         </div>
       </section>

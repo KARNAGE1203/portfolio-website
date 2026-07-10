@@ -115,12 +115,10 @@
 
 .project-row__role {
   display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--text-muted);
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
   margin-bottom: 16px;
 }
 

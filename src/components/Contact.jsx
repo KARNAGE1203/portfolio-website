@@ -38,6 +38,7 @@ export default function Contact() {
             >
               <span className="contact__link-label">{link.label}</span>
               <span className="contact__link-value">{link.value}</span>
+              <span className="contact__link-arrow" aria-hidden="true">↗</span>
             </a>
           ))}
         </div>

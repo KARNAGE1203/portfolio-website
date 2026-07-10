@@ -32,21 +32,21 @@ const EXPERIENCE = [
   },
 ]
 
-function ExperienceCard({ item, index }) {
+function ExperienceRow({ item, index }) {
   const [ref, inView] = useInView()
 
   return (
     <article
       ref={ref}
-      className={`experience-card reveal ${inView ? 'is-visible' : ''}`}
+      className={`experience-row reveal ${inView ? 'is-visible' : ''}`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
-      <div className="experience-card__header">
-        <h3 className="experience-card__role">{item.role}</h3>
-        <span className="experience-card__period">{item.period}</span>
+      <div className="experience-row__header">
+        <h3 className="experience-row__role">{item.role}</h3>
+        <span className="experience-row__period">{item.period}</span>
       </div>
-      <p className="experience-card__org">{item.org} / {item.location}</p>
-      <p className="experience-card__text">{item.text}</p>
+      <p className="experience-row__org">{item.org} / {item.location}</p>
+      <p className="experience-row__text">{item.text}</p>
     </article>
   )
 }
@@ -58,7 +58,7 @@ export default function Experience() {
         <h2 className="section-title">Experience</h2>
         <div className="experience__list">
           {EXPERIENCE.map((item, index) => (
-            <ExperienceCard key={item.role} item={item} index={index} />
+            <ExperienceRow key={item.role} item={item} index={index} />
           ))}
         </div>
       </div>
