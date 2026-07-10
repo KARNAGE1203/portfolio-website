@@ -24,7 +24,7 @@ const DEV = [
   { pkg: 'wordpress',          note: 'cms & plugins'         },
 ]
 
-function Panel({ cmd, items, color, showCursor, visible, baseDelay }) {
+function Panel({ cmd, items, color, showCursor, visible, baseDelay, footerNote }) {
   return (
     <div className={`skill-panel skill-panel--${color}`}>
       <div className="skill-panel__chrome" aria-hidden="true">
@@ -52,7 +52,7 @@ function Panel({ cmd, items, color, showCursor, visible, baseDelay }) {
         className={`skill-panel__footer${visible ? ' is-visible' : ''}`}
         style={{ transitionDelay: `${baseDelay + items.length * 0.06 + 0.08}s` }}
       >
-        <span>{items.length} packages installed</span>
+        <span className="skill-panel__footer-note">{footerNote}</span>
         {showCursor && <span className="skill-panel__cursor" aria-hidden="true" />}
       </div>
     </div>
@@ -65,11 +65,13 @@ export default function Skills() {
   return (
     <section id="skills" className="skills" aria-label="Skills" ref={ref}>
       <div className="container">
+        <h2 className="skills__heading">The toolkit.</h2>
         <div className="skills__grid">
           <Panel
             cmd="install design-toolkit"
             items={DESIGN}
             color="d"
+            footerNote="// Figma open. Always."
             showCursor={false}
             visible={inView}
             baseDelay={0}
@@ -78,6 +80,7 @@ export default function Skills() {
             cmd="install dev-stack"
             items={DEV}
             color="v"
+            footerNote="// npm install hope"
             showCursor={true}
             visible={inView}
             baseDelay={0.2}

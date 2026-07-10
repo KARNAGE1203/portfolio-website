@@ -4,6 +4,12 @@
   border-top: 1px solid var(--border);
 }
 
+/* ─── Heading ─────────────────────────────────────────── */
+.skills__heading {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin-bottom: 40px;
+}
+
 /* ─── Two-column grid ─────────────────────────────────── */
 .skills__grid {
   display: grid;
@@ -117,6 +123,13 @@
 
 .skill-panel__footer.is-visible {
   opacity: 1;
+}
+
+/* ─── Footer note ─────────────────────────────────────── */
+.skill-panel__footer-note {
+  font-style: italic;
+  color: var(--text-muted);
+  opacity: 0.75;
 }
 
 /* ─── Blinking cursor ─────────────────────────────────── */
