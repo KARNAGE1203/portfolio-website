@@ -167,7 +167,7 @@ export default function Skills() {
     clearTimeout(holdTimer.current)
     setAutoIdx(i)
     setHovered(prev => (prev === i ? null : i))
-    holdTimer.current = setTimeout(() => setHovered(null), 6000)
+    holdTimer.current = setTimeout(() => setHovered(null), 1500)
   }
 
   const displayIdx = hovered !== null ? hovered : (isTouch ? autoIdx : null)
@@ -183,7 +183,7 @@ export default function Skills() {
             <svg
               className={`wheel${displayIdx !== null ? ' wheel--hovering' : ''}`}
               viewBox="0 0 650 650"
-              aria-hidden="true"
+              aria-label="Skills wheel"
             >
               {/* Outer dashed ring */}
               <circle cx={CX} cy={CY} r={R_OUT + 14} className="wheel__ring" />
