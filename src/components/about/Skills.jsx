@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import useInView from '../../hooks/useInView'
 import './Skills.css'
 
 // ── Geometry ────────────────────────────────────────────
@@ -133,18 +134,54 @@ const ICONS = {
 
 // ── Component ────────────────────────────────────────────
 export default function Skills() {
-  const [hovered, setHovered] = useState(null)
-  const active = hovered !== null ? SKILLS[hovered] : null
+  const [hovered, setHovered] = useState(null)  // explicit user intent (hover or tap)
+  const [autoIdx, setAutoIdx] = useState(null)  // touch devices: self-running spotlight tour
+  const [isTouch, setIsTouch] = useState(false)
+  const [sectionRef, inView] = useInView({ threshold: 0.3 })
+  const holdTimer = useRef(null)
+
+  // Touch = no hover capability
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: none)')
+    const update = () => setIsTouch(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  // Auto-tour: on touch devices the spotlight walks the wheel on its own,
+  // starting once the wheel scrolls into view. Pauses while the user holds
+  // a selection; skipped entirely for reduced-motion users.
+  useEffect(() => {
+    if (!isTouch || !inView || hovered !== null) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    setAutoIdx(i => (i === null ? 0 : i))
+    const id = setInterval(() => setAutoIdx(i => (i === null ? 0 : (i + 1) % N)), 1500)
+    return () => clearInterval(id)
+  }, [isTouch, inView, hovered])
+
+  useEffect(() => () => clearTimeout(holdTimer.current), [])
+
+  // Tap: jump the spotlight to this petal and hold it briefly, then resume
+  const selectTap = (i) => {
+    clearTimeout(holdTimer.current)
+    setAutoIdx(i)
+    setHovered(prev => (prev === i ? null : i))
+    holdTimer.current = setTimeout(() => setHovered(null), 6000)
+  }
+
+  const displayIdx = hovered !== null ? hovered : (isTouch ? autoIdx : null)
+  const active = displayIdx !== null ? SKILLS[displayIdx] : null
 
   return (
-    <section id="skills" className="skills" aria-label="Skills">
+    <section id="skills" className="skills" aria-label="Skills" ref={sectionRef}>
       <div className="container">
         <h2 className="skills__heading">Tools I use...</h2>
 
         <div className="skills__wheel-wrap">
           <div className="wheel-frame">
             <svg
-              className={`wheel${hovered !== null ? ' wheel--hovering' : ''}`}
+              className={`wheel${displayIdx !== null ? ' wheel--hovering' : ''}`}
               viewBox="0 0 650 650"
               aria-hidden="true"
             >
@@ -154,7 +191,7 @@ export default function Skills() {
               {/* ── Visual layer: segment + icon move together ── */}
               {SKILLS.map((skill, i) => {
                 const { x, y, pushX, pushY } = iconXY(i)
-                const isActive = hovered === i
+                const isActive = displayIdx === i
                 const color = skill.cat === 'v'
                   ? 'rgba(108,99,255,1)'
                   : 'rgba(45,212,191,1)'
@@ -189,11 +226,11 @@ export default function Skills() {
                   key={`hit-${skill.id}`}
                   className="wheel__hit"
                   d={arcPath(i)}
-                  onMouseEnter={() => setHovered(i)}
-                  onMouseLeave={() => setHovered(null)}
-                  onClick={() => setHovered(hovered === i ? null : i)}
-                  onFocus={() => setHovered(i)}
-                  onBlur={() => setHovered(null)}
+                  onMouseEnter={() => { if (!isTouch) setHovered(i) }}
+                  onMouseLeave={() => { if (!isTouch) setHovered(null) }}
+                  onClick={() => selectTap(i)}
+                  onFocus={() => { if (!isTouch) setHovered(i) }}
+                  onBlur={() => { if (!isTouch) setHovered(null) }}
                   tabIndex={0}
                   role="button"
                   aria-label={`${skill.label}: ${skill.sub}`}
