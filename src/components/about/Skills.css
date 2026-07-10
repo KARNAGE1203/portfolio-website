@@ -17,7 +17,7 @@
 
 .wheel {
   width: 100%;
-  max-width: 520px;
+  max-width: 760px;
   height: auto;
   display: block;
   overflow: visible;
@@ -110,7 +110,7 @@
 
 .wheel__center-word {
   font-family: var(--font-display, 'Bricolage Grotesque'), sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 700;
   fill: var(--text-primary);
   text-anchor: middle;
@@ -119,7 +119,7 @@
 
 .wheel__center-word--accent {
   fill: var(--accent);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 /* ─── Centre text — hovered state ─────────────────────── */
@@ -134,7 +134,7 @@
 
 .wheel__center-skill {
   font-family: var(--font-display, 'Bricolage Grotesque'), sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   fill: var(--text-primary);
   text-anchor: middle;
@@ -143,7 +143,7 @@
 
 .wheel__center-desc {
   font-family: var(--font-mono, 'JetBrains Mono'), monospace;
-  font-size: 8.5px;
+  font-size: 10px;
   fill: var(--text-muted);
   text-anchor: middle;
   dominant-baseline: auto;
@@ -165,7 +165,7 @@
 /* ─── Responsive ──────────────────────────────────────── */
 @media (max-width: 600px) {
   .wheel {
-    max-width: 340px;
+    max-width: 480px;
   }
 
   .wheel__center-word {

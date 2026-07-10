@@ -2,11 +2,14 @@ import { useState } from 'react'
 import './Skills.css'
 
 // ── Geometry ────────────────────────────────────────────
-const CX    = 260
-const CY    = 260
-const R_IN  = 66   // inner hole
-const R_OUT = 196  // outer edge
-const R_ICO = 136  // icon centre
+// Scaled up overall size, but kept petals thinner (smaller radial thickness)
+const CX    = 325
+const CY    = 325
+const R_OUT = 245  // outer edge (bigger overall)
+const THICK = 60   // radial thickness of the petals
+const R_IN  = R_OUT - THICK // inner hole (thinner petals)
+// position icons roughly midway through the petal so they're visible
+const R_ICO = Math.round((R_IN + R_OUT) / 2)  // icon centre
 const GAP   = 2.8  // degrees of gap on each side of each segment
 
 // ── Skills ──────────────────────────────────────────────
@@ -50,8 +53,9 @@ function iconXY(i) {
   return {
     x:     CX + R_ICO * Math.cos(mid),
     y:     CY + R_ICO * Math.sin(mid),
-    pushX: Math.cos(mid) * 10,
-    pushY: Math.sin(mid) * 10,
+    // slightly larger push for active segments to match scale
+    pushX: Math.cos(mid) * 12,
+    pushY: Math.sin(mid) * 12,
   }
 }
 
@@ -136,12 +140,12 @@ export default function Skills() {
   return (
     <section id="skills" className="skills" aria-label="Skills">
       <div className="container">
-        <h2 className="skills__heading">The toolkit.</h2>
+        <h2 className="skills__heading">Tools I use...</h2>
 
         <div className="skills__wheel-wrap">
           <svg
             className={`wheel${hovered !== null ? ' wheel--hovering' : ''}`}
-            viewBox="0 0 520 520"
+            viewBox="0 0 650 650"
             role="img"
             aria-label="Skills wheel — hover a segment to explore"
           >
@@ -184,8 +188,8 @@ export default function Skills() {
               )
             })}
 
-            {/* Centre hub */}
-            <circle cx={CX} cy={CY} r={R_IN - 6} className="wheel__hub" />
+            {/* Centre hub (reduced by 20% for better icon visibility) */}
+            <circle cx={CX} cy={CY} r={Math.round((R_IN + 8) * 0.8)} className="wheel__hub" />
 
             {/* Centre label — default */}
             <g className={`wheel__center-default${active ? ' is-hidden' : ''}`}>
