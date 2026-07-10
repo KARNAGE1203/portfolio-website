@@ -15,9 +15,15 @@
   justify-content: center;
 }
 
-.wheel {
+/* Frame is the positioning context for the HTML centre label */
+.wheel-frame {
+  position: relative;
   width: 100%;
   max-width: 760px;
+}
+
+.wheel {
+  width: 100%;
   height: auto;
   display: block;
   overflow: visible;
@@ -32,15 +38,10 @@
   opacity: 0.5;
 }
 
-/* ─── Segments ────────────────────────────────────────── */
+/* ─── Visual segments (pointer events handled by hit layer) ─ */
 .wheel__seg {
-  cursor: pointer;
-  outline: none;
+  pointer-events: none;
   transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.wheel__seg:focus-visible .wheel__seg-path {
-  outline: 2px solid var(--accent);
 }
 
 /* Segment fill + stroke */
@@ -61,9 +62,9 @@
   stroke-width: 1;
 }
 
-/* Dim all non-active when wheel is being hovered */
+/* Dim all non-active when a segment is hovered */
 .wheel--hovering .wheel__seg-path {
-  opacity: 0.1;
+  opacity: 0.12;
 }
 
 /* Active segment — brighten + push outward */
@@ -77,18 +78,38 @@
 }
 
 /* ─── Icons ───────────────────────────────────────────── */
-.wheel__seg-icon {
-  transition: opacity 0.2s ease;
-  opacity: 0.55;
-  pointer-events: none;
+/* Inner group only ever gets CSS scale — the positioning
+   translate lives on the parent's SVG attribute, untouched. */
+.wheel__icon {
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-box: fill-box;
+  transform-origin: center center;
 }
 
-.wheel--hovering .wheel__seg-icon {
-  opacity: 0.25;
+.wheel--hovering .wheel__icon {
+  opacity: 0.3;
 }
 
-.wheel__seg--active .wheel__seg-icon {
-  opacity: 1 !important;
+.wheel__seg--active .wheel__icon {
+  opacity: 1;
+  transform: scale(1.15);
+  /* segment fill goes full-strength on hover — flip the icon to white for contrast */
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ─── Hit layer (invisible, static) ───────────────────── */
+.wheel__hit {
+  fill: transparent;
+  stroke: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.wheel__hit:focus-visible {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 4 4;
 }
 
 /* ─── Centre hub ──────────────────────────────────────── */
@@ -96,57 +117,64 @@
   fill: var(--bg);
   stroke: var(--border);
   stroke-width: 1.5;
+  pointer-events: none;
 }
 
-/* ─── Centre text — default state ─────────────────────── */
-.wheel__center-default {
-  transition: opacity 0.15s ease;
-  opacity: 1;
+/* ─── HTML centre label ───────────────────────────────── */
+.wheel__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 34%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  pointer-events: none;
 }
 
-.wheel__center-default.is-hidden {
-  opacity: 0;
-}
-
-.wheel__center-word {
-  font-family: var(--font-display, 'Bricolage Grotesque'), sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  fill: var(--text-primary);
-  text-anchor: middle;
-  dominant-baseline: auto;
-}
-
-.wheel__center-word--accent {
-  fill: var(--accent);
-  font-size: 16px;
-}
-
-/* ─── Centre text — hovered state ─────────────────────── */
+/* Both states stack in the same grid cell and cross-fade */
+.wheel__center-default,
 .wheel__center-active {
-  transition: opacity 0.15s ease;
-  opacity: 0;
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.18s ease;
 }
 
-.wheel__center-active.is-shown {
-  opacity: 1;
+.wheel__center-default { opacity: 1; }
+.wheel__center-default.is-hidden { opacity: 0; }
+
+.wheel__center-active { opacity: 0; }
+.wheel__center-active.is-shown { opacity: 1; }
+
+.wheel__center-title {
+  font-family: var(--font-display, 'Bricolage Grotesque'), sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.wheel__center-title--accent {
+  color: var(--accent);
 }
 
 .wheel__center-skill {
   font-family: var(--font-display, 'Bricolage Grotesque'), sans-serif;
-  font-size: 16px;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
   font-weight: 700;
-  fill: var(--text-primary);
-  text-anchor: middle;
-  dominant-baseline: auto;
+  line-height: 1.15;
+  color: var(--text-primary);
 }
 
 .wheel__center-desc {
   font-family: var(--font-mono, 'JetBrains Mono'), monospace;
-  font-size: 10px;
-  fill: var(--text-muted);
-  text-anchor: middle;
-  dominant-baseline: auto;
+  font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+  color: var(--text-secondary);
 }
 
 /* ─── Accessibility ───────────────────────────────────── */
@@ -164,20 +192,32 @@
 
 /* ─── Responsive ──────────────────────────────────────── */
 @media (max-width: 600px) {
-  .wheel {
+  .wheel-frame {
     max-width: 480px;
   }
 
-  .wheel__center-word {
-    font-size: 11px;
+  /* Icons stay put (positioning is an SVG attribute on the parent) —
+     scale the inner group up in place and make it fully visible */
+  .wheel__icon {
+    opacity: 0.95;
+    transform: scale(1.3);
+  }
+
+  .wheel__seg--active .wheel__icon {
+    transform: scale(1.45);
+  }
+
+  /* Real pixel sizes — the HTML label doesn't shrink with the SVG */
+  .wheel__center-title {
+    font-size: 1.25rem;
   }
 
   .wheel__center-skill {
-    font-size: 10px;
+    font-size: 1.05rem;
   }
 
   .wheel__center-desc {
-    font-size: 7px;
+    font-size: 0.72rem;
   }
 }
 
@@ -185,9 +225,17 @@
 @media (prefers-reduced-motion: reduce) {
   .wheel__seg,
   .wheel__seg-path,
-  .wheel__seg-icon,
+  .wheel__icon,
   .wheel__center-default,
   .wheel__center-active {
     transition: none;
+  }
+
+  .wheel__seg--active {
+    transform: none;
+  }
+
+  .wheel__seg--active .wheel__icon {
+    transform: none;
   }
 }
