@@ -1,0 +1,24 @@
+# Danish Saini — UX/UI Designer & Frontend Developer
+
+> Portfolio of Danish Saini, a UX/UI designer and frontend developer based in
+> Dubai, currently completing a BSc in Computer Science at De Montfort
+> University Dubai. He designs interfaces, builds them in React, and writes
+> books.
+
+## Pages
+
+- [Home](https://danishsaini.com/): Introduction, featured projects, and contact details
+- [About](https://danishsaini.com/about): Journey across India, Canada, and the UAE; skills, experience, education, and certifications
+- [Projects](https://danishsaini.com/projects): Selected design and development work
+- [Contact](https://danishsaini.com/contact): Email and social links
+
+## Projects
+
+- [LearningZone Redesign](https://danishsaini.com/projects/learningzone): UX case study — redesigning a university learning platform
+- [FindMyTutor](https://danishsaini.com/projects/findmytutor): End-to-end UX design project, research to hi-fi prototype
+- [Little Lemon Restaurant](https://danishsaini.com/projects/littlelemon): Multi-page React web app with menu, reservations, and cart
+
+## Books
+
+- [Books](https://danishsaini.com/books): Published writing
+- [The Foreign Land](https://danishsaini.com/books/the-foreign-land): A memoir about leaving India for Canada at nineteen

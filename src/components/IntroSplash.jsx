@@ -21,7 +21,7 @@ export default function IntroSplash() {
     if (!show) return
     sessionStorage.setItem(KEY, '1')
     document.documentElement.style.overflow = 'hidden'
-    const t = setTimeout(() => setShow(false), 2950)
+    const t = setTimeout(() => setShow(false), 3250)
     return () => {
       clearTimeout(t)
       document.documentElement.style.overflow = ''
@@ -41,26 +41,27 @@ export default function IntroSplash() {
         {/* pathLength=1 lets CSS animate stroke-dashoffset 1 → 0 as a pen stroke.
             Each glyph is a closed 2D letterform outline the pen traces around. */}
         <svg className="intro-splash__glyphs" viewBox="0 0 520 300" fill="none">
+          {/* Sequence: / draws first, the name appears, then < and > draw together */}
           {/* < — hollow chevron, 45° arms, vertical end caps */}
           <path
             className="intro-splash__glyph"
             pathLength="1"
             d="M 162 58 L 70 150 L 162 242 L 162 212 L 100 150 L 162 88 Z"
-            style={{ animationDelay: '0.15s' }}
+            style={{ animationDelay: '1.55s' }}
           />
           {/* / — hollow slash, parallelogram with flat caps */}
           <path
             className="intro-splash__glyph"
             pathLength="1"
             d="M 285 48 L 315 48 L 245 252 L 215 252 Z"
-            style={{ animationDelay: '0.6s' }}
+            style={{ animationDelay: '0.1s' }}
           />
           {/* > — mirror of < */}
           <path
             className="intro-splash__glyph"
             pathLength="1"
             d="M 358 58 L 450 150 L 358 242 L 358 212 L 420 150 L 358 88 Z"
-            style={{ animationDelay: '1.05s' }}
+            style={{ animationDelay: '1.55s' }}
           />
         </svg>
         <p className="intro-splash__name">
