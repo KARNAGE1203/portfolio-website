@@ -1,7 +1,9 @@
 /* ─── Section shell ─────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100dvh;
+  /* svh, not dvh: dvh re-resolves when the mobile URL bar hides, which
+     resizes the hero mid-scroll and makes the page bottom jitter */
+  min-height: 100svh;
   display: flex;
   align-items: center;
   padding-top: 72px;

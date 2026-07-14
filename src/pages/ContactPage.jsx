@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import Icon from '../components/Icon'
-import WorldMapBackground from '../components/WorldMapBackground'
 import './ContactPage.css'
+
+/* The world map bundles d3 + a ~100kB topojson dataset — stream it in
+   after the page content paints instead of blocking on it */
+const WorldMapBackground = lazy(() => import('../components/WorldMapBackground'))
 
 const SOCIAL_LINKS = [
   {
@@ -33,7 +36,9 @@ export default function ContactPage() {
 
   return (
     <main className="contact-page">
-      <WorldMapBackground />
+      <Suspense fallback={null}>
+        <WorldMapBackground />
+      </Suspense>
 
       <div className="contact-page__container">
         <div className={`contact-card reveal ${visible ? 'is-visible' : ''}`}>

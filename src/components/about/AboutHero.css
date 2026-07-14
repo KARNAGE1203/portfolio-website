@@ -1,7 +1,8 @@
 .about-hero {
   position: relative;
   display: flex;
-  min-height: 100dvh;
+  /* svh, not dvh — dvh resizes with the mobile URL bar and causes scroll jitter */
+  min-height: 100svh;
   padding-top: 72px;
   padding-bottom: 0;
   overflow: hidden;
